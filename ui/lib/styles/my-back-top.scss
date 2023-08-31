@@ -1,0 +1,54 @@
+@import "common/var";
+/*
+.my-back-top {
+  z-index: $--index-top;
+  position: fixed;
+  cursor: pointer;
+  display: none;
+
+  &.xdh-back-top-show {
+    display: block;
+  }
+
+  &-inner {
+    background-color: rgba(0, 0, 0, .6);
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .2);
+    transition: $--all-transition;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, .7);
+    }
+  }
+
+  i {
+    color: #fff;
+    font-size: 24px;
+    padding: 8px 12px;
+  }
+}
+*/
+
+@include b(back-top) {
+  z-index: $--index-top;
+  position: fixed;
+  cursor: pointer;
+  display: none;
+  @include when(show) {
+    display: block;
+  }
+  @include e(inner) {
+    background-color: rgba(0, 0, 0, .6);
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .2);
+    transition: all 0.5s; // $--all-transition;
+    &:hover {
+      background-color: rgba(0, 0, 0, .7);
+    }
+  }
+  i {
+    color: #fff;
+    font-size: 24px;
+    padding: 8px 12px;
+  }
+}

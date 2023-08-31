@@ -1,0 +1,56 @@
+@import "common/var";
+
+@include b(number) {
+  display: inline-block;
+  > span {
+    vertical-align: baseline;
+  }
+
+  @include e(trend) {
+    position: relative;
+    top: 1px;
+    @include when(up) {
+      color: $--color-danger;
+    }
+    @include when(down) {
+      color: $--color-success;
+    }
+    @include when(default) {
+      color: $--color-primary;
+    }
+  }
+
+  @include e(sup) {
+    font-weight: normal;
+    font-size: 0.6em;
+    padding: 0 3px;
+  }
+
+
+  @include when(pointer) {
+    cursor: pointer;
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  @include when(primary) {
+    color: $--color-primary;
+  }
+
+  @include when(warning) {
+    color: $--color-warning;
+  }
+
+  @include when(success) {
+    color: $--color-success;
+  }
+
+  @include when(danger) {
+    color: $--color-danger;
+  }
+
+  @include when(info) {
+    color: $--color-info;
+  }
+}

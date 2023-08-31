@@ -1,0 +1,307 @@
+@import "../common/var";
+
+//-------- fix element-ui ----------------------
+.el-button + .el-button-group,
+.el-button-group + .el-button,
+.el-button-group + .el-button-group {
+  margin-left: 10px;
+  margin-top: -1px;
+}
+
+.el-button--default {
+  &:hover,
+  &:focus {
+    color: $--button-default-hover-color;
+    border-color: $--button-default-hover-border-color;
+    background-color: $--button-default-hover-background-color;
+  }
+}
+
+button.el-button.is-plain {
+  &:hover,
+  &:focus {
+    color: $--color-primary-light-10;
+  }
+}
+
+button.el-button--default.is-plain {
+  &:hover,
+  &:focus {
+    color: $--color-primary;
+  }
+}
+
+.el-tag + .el-tag {
+  margin-left: 5px;
+}
+
+.el-range-input {
+  background: $--background;
+}
+
+.el-table{
+  thead {
+    // background: $--background !important;
+    th {
+      // background: rgba(0,0,0,0.09) !important; // $--background-color-base;
+      background-color: $--color-table-header !important;
+    }
+    &.is-group {
+      th {
+        // background: rgba(0,0,0,0.09) !important;
+        background-color: $--color-table-header !important;
+      }
+    }
+  }
+
+  .el-table__body tr:hover > td {
+    background-color: $--color-table-hover !important;
+  }
+  .el-table__body tr.hover-row > td {
+    background-color: $--color-table-hover !important;
+  }
+  
+  .el-table__row--striped {
+    td {
+      background: $--color-table-stripe !important;
+    }
+
+    &.hover-row, &:hover {
+      td {
+        background-color: $--color-table-hover !important;
+      }
+    }
+  }
+}
+
+
+.el-calendar {
+  background: $--background !important;
+
+  .el-calendar__title {
+    color: $--color-title !important;;
+    font-size: $--font-size-medium;
+  }
+}
+
+.el-color-picker__trigger {
+  border: 1px solid $--color-border !important;
+}
+
+.el-upload--picture-card, .el-upload-dragger, .el-upload-list__item {
+  background-color: $--background !important;
+  border: 1px dashed $--color-border !important;
+}
+
+.el-tree {
+  background-color: transparent !important;
+}
+
+.el-loading-mask {
+  background-color: $--color-mask !important;
+}
+
+.el-menu, .el-menu.el-menu--horizontal {
+  border-width: 0 !important;
+}
+
+.el-menu.el-menu--horizontal {
+  & > .el-menu-item {
+    &:not(.is-disabled):hover,
+    &:not(.is-disabled):focus {
+      background-color: $--background;
+    }
+  }
+
+  & > .el-submenu {
+    & .el-submenu__title {
+      &:hover {
+        background-color: $--background;
+      }
+    }
+  }
+
+  & .el-menu {
+    & .el-menu-item,
+    & .el-submenu__title {
+    }
+  }
+}
+
+.el-drawer {
+  outline: none;
+  color: $--color-normal-text;
+  overflow: auto;
+}
+
+.el-drawer__header {
+  outline: none;
+  color: $--color-title !important;
+  font-size: 24px;
+}
+
+.el-drawer__header > :first-child, .el-drawer__title {
+  outline: none;
+}
+
+.el-drawer__close-btn {
+  outline: none;
+  font-size: 24px !important;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.el-tooltip__popper.is-light {
+  color: $--tooltip-light-color;
+}
+
+div.v-modal {
+  background-color: $--color;
+  opacity: 0.2;
+}
+
+.el-badge > .el-badge__content {
+  color: $--color-primary-light-10;
+}
+
+.el-pagination.is-background .el-pager li:not(.disabled).active {
+  color: $--color-primary-light-10 !important;
+}
+
+.el-progress-bar__innerText {
+  color: $--color-primary-light-10 !important;
+}
+
+.el-alert.is-dark {
+  color: $--color-primary-light-10 !important;
+}
+
+.el-tag--dark {
+  color: $--color-primary-light-10 !important;
+}
+
+.el-select .el-tag {
+  background-color: $--color-table-stripe !important;
+}
+
+.el-step__icon {
+  vertical-align: middle;
+}
+
+.el-tooltip__popper {
+  max-width: 600px !important;
+}
+
+.el-link {
+  font-size: inherit !important;
+  font-weight: inherit !important;
+  vertical-align: baseline !important;
+}
+
+.el-input__inner{
+  border-color: $--input-border-color !important; // #A8C2D3 !important;
+  &:hover {
+    border-color: $--input-hover-border !important;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $--input-focus-border !important;
+  }
+}
+
+// el-tree 内容过长允许出现滚动条
+.el-tree {
+  & > :nth-child(n+1) {
+    display: inline-block;
+    min-width: 100%;
+  }
+}
+// el-tree 连线样式
+.el-tree.is-line {
+  // 最左边折叠/展开图标 （默认状态）
+  .el-tree-node__expand-icon {
+    position: relative;
+    transform: none;
+    transition: none;
+    color: $--color-info;
+    &:before {
+      content: '+';
+      box-sizing: border-box;
+      display: inline-block;
+      border: 1px solid $--color-info;
+      border-radius: 2px;
+      text-align: center;
+      width: 14px;
+      height: 14px;
+      font-size: 14px;
+      line-height: 11px;
+      margin-top: 1px;
+    }
+  }
+  // 最左边折叠/展开图标 （展开状态）
+  .el-tree-node__expand-icon.expanded {
+    transform: none;
+    transition: none;
+    &:before {
+      content: '-';
+    }
+  }
+
+  .el-tree-node__expand-icon.is-leaf{
+    border-left: none;
+    border-right: 0 solid transparent;
+    &:before {
+      content: '';
+      display: inline-block;
+      border: none;
+    }
+  }
+
+
+  div[role=group] {
+    position: relative;
+    // 纵向虚线 （树节点整体背景 用 重复纵向虚线）
+    .el-tree-node {
+
+      // 树状的内容展示区域 设置bg-image为白色遮住部分虚线（展示当前层级内容前面的纵向虚线）
+      .el-tree-node__content {
+        position: relative;
+      }
+
+      // 最左边折叠/展开图标 （无扩展类型） 需要在元素中间添加一条水平虚线（用作延长）
+      .el-tree-node__expand-icon.is-leaf {
+        &:before {
+          content: '';
+          display: inline-block;
+          height: 12px;
+          width: 12px;
+          border: none;
+          background-repeat: no-repeat;
+          background-image: repeating-linear-gradient(90deg, $--color-info 0, $--color-info 1px, transparent 1px, transparent 2px);
+          background-position: 0 calc(50% - 2px);
+          background-size: 100% 1px;
+        }
+      }
+    }
+
+
+    // 每个树节点 前面的 虚线 包括横向和纵向， 纵向虚线设置绝对大的高度
+    .el-tree-node__expand-icon::after {
+      content: '';
+      position: absolute;
+      display: block;
+      height: 99999px; // 足够大的虚线值
+      width: 12px;
+      left: -6px;
+      bottom: calc(50% + 1px);
+      background-repeat: no-repeat;
+      background-image: repeating-linear-gradient($--color-info 0px, $--color-info 1px, transparent 1px, transparent 2px),
+      repeating-linear-gradient(90deg, $--color-info 0px, $--color-info 1px, transparent 1px, transparent 2px);
+      background-position: 0 0, 0 100%;
+      background-size:1px 100%, 100% 1px;
+    }
+  }
+}

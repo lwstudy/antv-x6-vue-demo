@@ -1,0 +1,56 @@
+[
+  {
+    "id": "zhinan",
+    "parentId": null,
+    "label": "指南",
+    "value": "zhinan"
+  },
+  {
+    "id": "shejiyuanze",
+    "parentId": "zhinan",
+    "label": "设计原则",
+    "value": "shejiyuanze"
+  },
+  {
+    "id": "yizhi",
+    "parentId": "shejiyuanze",
+    "label": "一致",
+    "value": "yizhi"
+  },
+  {
+    "id": "fankui",
+    "parentId": "shejiyuanze",
+    "label": "反馈",
+    "value": "fankui"
+  },
+  {
+    "id": "xiaolv",
+    "parentId": "shejiyuanze",
+    "label": "效率",
+    "value": "xiaolv"
+  },
+  {
+    "id": "kekong",
+    "parentId": "shejiyuanze",
+    "label": "可控",
+    "value": "kekong"
+  },
+  {
+    "id": "daohang",
+    "parentId": "zhinan",
+    "label": "导航",
+    "value": "daohang"
+  },
+  {
+    "id": "cexiangdaohang",
+    "parentId": "daohang",
+    "label": "侧向导航",
+    "value": "cexiangdaohang"
+  },
+  {
+    "id": "dingbudaohang",
+    "parentId": "daohang",
+    "label": "顶部导航",
+    "value": "dingbudaohang"
+  }
+]

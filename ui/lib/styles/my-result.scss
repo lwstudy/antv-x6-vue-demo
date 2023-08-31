@@ -1,0 +1,74 @@
+@import "common/var";
+
+@include b(result) {
+  padding: 48px 32px;
+
+  @include e(icon-wrapper) {
+    font-size: 72px;
+    margin-bottom: 24px;
+    text-align: center;
+
+    @include when(image) {
+      width: 250px;
+      height: 295px;
+      margin: 0 auto 24px auto;
+    }
+  }
+
+  @include e(title) {
+    color: $--color-title;
+    font-size: $--font-size-large;
+    line-height: $--line-height-large;
+    text-align: center;
+  }
+
+  @include e(subtitle) {
+    color: $--color-secondary-text;
+    font-size: $--font-size;
+    line-height: $--line-height-normal;
+    text-align: center;
+  }
+
+  @include e(extra) {
+    margin-top: 2rem;
+    text-align: center;
+    > * {
+      margin-right: 0.5rem;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  @include e(content) {
+    margin-top: 24px;
+    padding: 24px 40px;
+    background-color: $--color-table-header;
+  }
+
+  @include m(success) {
+    @include e(icon) {
+      color: $--color-success;
+    }
+  }
+
+  @include m(error) {
+    @include e(icon) {
+      color: $--color-danger;
+    }
+  }
+
+  @include m(warning) {
+    @include e(icon) {
+      color: $--color-warning;
+    }
+  }
+
+  @include m(info) {
+    @include e(icon) {
+      color: $--color-primary;
+    }
+  }
+
+}

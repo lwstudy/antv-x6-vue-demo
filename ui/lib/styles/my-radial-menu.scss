@@ -1,0 +1,63 @@
+@import "common/var";
+
+
+@include b(radial-menu) {
+  position: absolute;
+  overflow: visible;
+  user-select: none;
+  transition: all .2s ease-out;
+
+  @include e(icons) {
+    display: none;
+  }
+  @include e(sector) {
+    fill: #00000080;
+    cursor: pointer;
+    @include when(selected) {
+      fill: #32CD32D0 !important;
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+    @include when(dummy) {
+      cursor: initial;
+    }
+    @include when(enabled) {
+      &:hover {
+        fill: #F9A602D0;
+      }
+    }
+    text {
+      fill: white;
+    }
+
+
+  }
+  @include e(center) {
+    fill: #00000080;
+    cursor: pointer;
+    text {
+      fill: white;
+    }
+    &:hover {
+      fill: #F9A602D0;
+    }
+  }
+  @include e(icon) {
+    svg {
+      fill: white;
+    }
+  }
+
+}
+
+
+.my-radial-menu-enter, .my-radial-menu-leave-active {
+  opacity: 0;
+  transform: scale(0.66) rotate(-10deg);
+}
+
+.my-radial-menu-outer {
+  transform: scale(1.5) rotate(10deg);
+  opacity: 0;
+}

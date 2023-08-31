@@ -1,0 +1,14 @@
+@import "common/var";
+
+@include b(avatars) {
+  display: inline-block;
+  @include when(pointer) {
+    cursor: pointer;
+  }
+  .my-avatar + .my-avatar {
+    margin-left: -12px;
+  }
+  @include e(add) {
+    margin-left: 6px !important;
+  }
+}

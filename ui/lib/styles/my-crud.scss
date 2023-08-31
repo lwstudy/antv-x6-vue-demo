@@ -1,0 +1,48 @@
+@import "common/var";
+
+@include b(crud) {
+  .my-table__pager {
+    padding-bottom: 0 !important;
+  }
+  @include e(filter) {
+    .my-container__inner {
+      overflow: hidden;
+    }
+  }
+}
+
+@include b(crud-form-dialog) {
+  .my-form__footer {
+    margin-bottom: 0 !important;
+  }
+}
+
+
+@include b(crud-handlebar) {
+
+  @include when(icon) {
+    .my-icon {
+      padding: 4px 10px;
+      cursor: pointer;
+      font-size: 16px;
+
+      &.is-disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+    }
+  }
+  @include when(mini) {
+    .my-icon {
+      padding: 4px 8px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+  }
+
+  @include when(text) {
+    .el-button--text {
+      padding: 0;
+    }
+  }
+}

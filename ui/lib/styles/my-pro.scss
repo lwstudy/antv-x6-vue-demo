@@ -1,0 +1,234 @@
+@import "common/var";
+
+$light-background: $white !default;
+$primary-background: $--color-primary !default;
+$dark-background: $--color-primary-light-1 !default;
+$gradual-background: linear-gradient(to bottom, $--color-primary-light-1, $--color-primary) !default;
+
+@include b(pro) {
+  min-height: 100vh;
+
+  > .my-layout__wrapper > .my-layout__west, > .my-layout__west {
+    transition: width 0.3s;
+    height: auto;
+  }
+  > .my-layout__wrapper > .my-layout__default, > .my-layout__default {
+    background-color: $--background;
+    position: relative;
+  }
+
+  @include e(breadcrumb) {
+    &.el-breadcrumb {
+      line-height: 60px;
+      height: 60px;
+
+      .el-breadcrumb__inner {
+        color: inherit !important;
+        opacity: 0.7;
+      }
+
+      .el-breadcrumb__separator {
+        color: inherit !important;
+        opacity: 0.3;
+      }
+    }
+  }
+
+  @include e(main) {
+    @include when(fixed) {
+      height: 100%;
+      width: 100%;
+      overflow: auto;
+      position: absolute;
+      &.has-tabs {
+        height: calc(100% - 40px);
+      }
+    }
+
+  }
+
+  @include when(fixed) {
+    overflow: hidden;
+    height: 100vh !important;
+    .my-pro {
+      height: 100%;
+    }
+    .my-layout__west, .my-layout__north {
+      overflow: visible !important;
+    }
+    .my-layout__default {
+      height: auto !important;
+      width: 100%;
+    }
+  }
+
+
+  @include when(rainbow) {
+    > .my-layout__wrapper > .my-layout__north, > .my-layout__north {
+      background: linear-gradient(to right, #f100db, #00eced, #0c76e5, green, yellow, orange, red);
+
+      .my-navbar {
+        border-bottom: none;
+        height: 60px;
+      }
+    }
+  }
+
+
+  @include m(sidebar) {
+    .my-navbar {
+      height: 60px;
+    }
+    @include when(xs) {
+      > .my-layout__west {
+        position: absolute !important;
+        left: 0;
+        top: 0;
+        height: 100%;
+        z-index: $--index-popper;
+      }
+      @include when(collapsed) {
+        > .my-layout__west {
+          width: 0;
+          overflow: hidden;
+        }
+
+      }
+    }
+  }
+
+  @include m(both) {
+    @include when(xs) {
+      > .my-layout__wrapper > .my-layout__west {
+        position: absolute !important;
+        left: 0;
+        top: 0;
+        height: 100%;
+        z-index: $--index-popper
+      }
+      @include when(collapsed) {
+        > .my-layout__wrapper > .my-layout__west {
+          width: 0;
+          overflow: hidden;
+        }
+      }
+    }
+    > .my-layout__wrapper {
+      height: calc(100% - 60px);
+    }
+  }
+
+  @include m(dark) {
+    background: $dark-background;
+  }
+
+  @include m(primary) {
+    background: $primary-background;
+  }
+
+  @include m(gradual) {
+    background: $gradual-background;
+  }
+
+  @include when(color-weak) {
+    filter: invert(85%) brightness(1.2) hue-rotate(180deg);
+  }
+
+  @include when(menus-level-split) {
+    .my-menu.el-menu--horizontal > .el-menu-item.is-active {
+      font-size: 18px;
+
+      > .my-icon {
+        font-size: 21px;
+
+      }
+    }
+  }
+
+}
+
+@include b(pro-tabs) {
+  font-size: 0;
+  background-color: $--background;
+
+  .el-tabs {
+    display: inline-block;
+    width: calc(100% - 40px);
+    vertical-align: top;
+    font-size: $--font-size;
+  }
+  @include e(action) {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    vertical-align: top;
+    font-size: $--font-size;
+
+    .el-dropdown {
+      line-height: 40px;
+      text-align: center;
+      width: 100%;
+      cursor: pointer;
+      height: 100%;
+      border-bottom: 1px solid $--color-divider;
+      overflow: hidden;
+
+      i {
+        width: 100%;
+        line-height: 40px;
+        height: 40px;
+      }
+
+      &:hover {
+        background-color: $--color-table-stripe;
+      }
+    }
+  }
+
+  .el-tabs__header {
+    margin: 0;
+  }
+  .el-tabs__item {
+    color: $--color-secondary-text;
+
+    &.is-active {
+      color: $--color-primary-text;
+    }
+  }
+  .el-tabs__header .el-tabs__nav {
+    border-radius: 0 !important;
+    border-left: none !important;
+    border-top: 0 !important;
+
+  }
+  .el-tabs__nav-next + .el-tabs__nav-scroll {
+    border-left: 1px solid $--color-divider;
+    border-right: 1px solid $--color-divider;
+  }
+  .el-tabs__nav-prev, .el-tabs__nav-next {
+    width: 20px;
+    text-align: center;
+    line-height: 40px;
+    //box-shadow: $--box-shadow-light;
+
+    &:hover {
+      background-color: $--color-table-stripe;
+    }
+  }
+}
+
+// ---- fix ---
+.my-pro .el-badge__content {
+  line-height: 16px;
+}
+
+.my-pro .my-navbar-user-action .my-avatar__string {
+  line-height: 30px;
+}
+
+.my-navbar__trigger, .my-sidebar__trigger {
+  .my-icon {
+    vertical-align: middle !important;
+  }
+}
+

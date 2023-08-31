@@ -1,0 +1,22 @@
+@import "common/var";
+
+@include b(card-list) {
+
+  @include e(wrapper) {
+    overflow-x: hidden;
+  }
+
+  @include e(empty) {
+    text-align: center;
+    padding: 20px;
+  }
+  @include e(loading) {
+    text-align: center;
+    padding: 20px;
+  }
+
+  @include e(pager) {
+    margin-top: 12px;
+  }
+
+}

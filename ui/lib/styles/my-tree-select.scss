@@ -1,0 +1,29 @@
+@import "common/var";
+@import "my-tag-input";
+
+@include b(tree-select) {
+
+  @include e(popover) {
+    padding: 0 !important;
+  }
+
+  @include e(filter) {
+    padding: 12px;
+    border-bottom: 1px solid $--color-divider;
+  }
+  @include e(tree) {
+    overflow: auto;
+    padding: 12px;
+    background-color: transparent !important;
+  }
+
+  @include e(popover) {
+    .el-tree-node__content > .is-disabled {
+      opacity: 0.5;
+    }
+    .el-input__suffix {
+      width: 40px;
+    }
+
+  }
+}

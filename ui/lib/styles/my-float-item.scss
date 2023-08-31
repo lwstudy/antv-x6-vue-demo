@@ -1,0 +1,18 @@
+@import "common/var";
+
+@include b(float-item) {
+
+  @include when(left) {
+    float: left;
+    display: inline-block;
+
+  }
+  @include when(right) {
+    float: right;
+    display: inline-block;
+  }
+
+  @include when(fit) {
+    height: 100%;
+  }
+}

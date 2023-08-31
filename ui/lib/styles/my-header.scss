@@ -1,0 +1,299 @@
+@import "common/var";
+
+$large: 3.5rem;
+// 默尺寸
+$default: 3rem;
+$medium: 2.5rem;
+$small: 2rem;
+$border-left-width: 0.3rem;
+$border-top-width: 0.2rem;
+$border-radius: 0.4rem;
+
+@mixin sizeCenter {
+  @include when(large) {
+    @include e(content) {
+      line-height: $large - $border-top-width;
+    }
+  }
+
+  @include when(medium) {
+    @include e(content) {
+      line-height: $medium - $border-top-width;
+    }
+  }
+
+  @include when(small) {
+    @include e(content) {
+      line-height: $small - $border-top-width;
+    }
+  }
+}
+
+@mixin iconCenter {
+  @include when(large) {
+    @include e(icon) {
+      height: $large - 0.8rem;
+      line-height: $large - 0.8rem - $border-top-width;
+    }
+    @include e(content) {
+      line-height: $large - 0.8rem;;
+    }
+  }
+  @include when(medium) {
+    @include e(icon) {
+      height: $medium - 0.4rem;
+      line-height: $medium - 0.4rem - $border-top-width;
+    }
+    @include e(content) {
+      line-height: $medium - 0.4rem;;
+    }
+  }
+
+  @include when(small) {
+    @include e(icon) {
+      height: $small - 0.3rem;
+      line-height: $small - 0.3rem - $border-top-width;
+    }
+    @include e(content) {
+      line-height: $small - 0.3rem;;
+    }
+  }
+}
+
+@mixin bg-down($name, $size, $offset) {
+  @include when($name) {
+    @include e(content) {
+      margin-left: ($size - $offset - $border-radius)/3;
+      height: $size - $offset;
+      line-height: $size - $offset;
+      &::after {
+        right: -($size - $offset - $border-radius)/3;
+        border-width: ($size - $offset - $border-radius) ($size - $offset - $border-radius)/3 0 0;
+        border-color: $--color-primary transparent transparent transparent;
+        transform: translateX(-1px);
+      }
+
+      &::before {
+        left: -($size - $offset - $border-radius)/3;
+        border-width: 0 ($size - $offset - $border-radius)/3 ($size - $offset - $border-radius) 0;
+        border-color: transparent $--color-primary transparent transparent;
+        transform: translateX(1px);
+      }
+    }
+  }
+}
+
+@mixin bg-right($name, $size, $offset) {
+  @include when($name) {
+    @include e(content) {
+      height: $size - $offset;
+      line-height: $size - $offset;
+      top: $offset;
+      &::after {
+        right: -($size - $offset - $border-radius)/3;
+        border-width: ($size - $offset - $border-radius) 0 0 ($size - $offset - $border-radius)/3;
+        border-color: transparent transparent transparent $--color-primary;
+      }
+    }
+  }
+}
+
+@include b(header) {
+  position: relative;
+  height: $default;
+  color: $--color-title;
+  font-size: $--font-size-normal;
+  margin-bottom: 1rem;
+  box-sizing: border-box;
+
+  @include m(border-left) {
+    @include e(content) {
+      border-left: $border-left-width solid $--color-primary;
+    }
+  }
+
+  @include m(border-top) {
+    border-top: 1px solid $--color-primary;
+
+    @include e(content) {
+      border-top: $border-top-width solid $--color-primary;
+      height: 100%;
+      margin-top: -1px;
+      line-height: $default - $border-top-width;
+    }
+
+    @include sizeCenter;
+
+  }
+
+  @include m(border-bottom) {
+    border-bottom: 1px solid $--color-primary;
+
+    @include e(content) {
+      border-bottom: $border-top-width solid $--color-primary;
+      height: 100%;
+      line-height: $default - $border-top-width;
+    }
+
+    @include sizeCenter;
+  }
+
+  @include m(bg-icon) {
+    @include e(content) {
+      padding-left: 3rem;
+    }
+    @include e(icon) {
+      background: $--color-primary;
+      color: $--color-primary-light-10;
+      display: inline-block;
+      height: $default - 0.5rem;
+      position: absolute;
+      left: 0;
+      line-height: $default - 0.5rem - $border-top-width;
+      margin-top: -1px;
+      padding: 0 0.5rem;
+      border-radius: 0 0 1rem 1rem;
+      margin-left: 0.5rem;
+
+    }
+    @include iconCenter;
+    @include e(content) {
+      border-top: 0;
+      line-height: $default - 0.5rem;;
+    }
+  }
+
+  @include m(bg-down) {
+    border-top: 1px solid $--color-primary;
+    @include e(icon) {
+      color: $--color-primary-light-10;
+      padding-left: 0;
+    }
+    @include e(content) {
+      color: $--color-primary-light-10;
+      background: $--color-primary;
+      border-radius: 0 0 $border-radius $border-radius;
+      height: $default - 0.8rem;
+      top: 0;
+      left: 1rem;
+      transform: none;
+      line-height: $default - 0.8rem;
+      position: relative;
+      display: inline-block;
+      margin-left: ($default - 0.8rem - $border-radius)/3;
+      padding-left: 1rem;
+      &::after {
+        content: '';
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        right: -($default - 0.8rem - $border-radius)/3;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: ($default  - 0.8rem - $border-radius) ($default - 0.8rem - $border-radius)/3 0 0;
+        border-color: $--color-primary transparent transparent transparent;
+      }
+      &::before {
+        content: '';
+        display: inline-block;
+        position: absolute;
+        left: -($default - 0.8rem - $border-radius)/3;
+        top: 0;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 ($default - 0.8rem - $border-radius)/3 ($default - 0.8rem - $border-radius) 0;
+        border-color: transparent $--color-primary transparent transparent;
+      }
+    }
+
+    @include bg-down(large, $large, 1rem);
+    @include bg-down(medium, $medium, 0.6rem);
+    @include bg-down(small, $small, 0.5rem);
+  }
+
+  @include m(bg-right) {
+    border-bottom: 1px solid $--color-primary;
+    @include e(icon) {
+      color: $--color-primary-light-10;
+      padding-left: 0;
+    }
+    @include e(content) {
+      color: $--color-primary-light-10;
+      background: $--color-primary;
+      border-radius: 0 $border-radius 0 0;
+      height: $default - 0.8rem;
+      top: 0.8rem;
+      left: 0;
+      transform: none;
+      line-height: $default - 0.8rem;
+      position: relative;
+      display: inline-block;
+      padding-left: 1rem;
+      &::after {
+        content: '';
+        display: inline-block;
+        position: absolute;
+        right: -($default - 0.8rem - $border-radius)/3;
+        bottom: 0;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: ($default  - 0.8rem - $border-radius) 0 0 ($default - 0.8rem - $border-radius)/3;
+        border-color: transparent transparent transparent $--color-primary;
+      }
+    }
+
+    @include bg-right(large, $large, 1rem);
+    @include bg-right(medium, $medium, 0.6rem);
+    @include bg-right(small, $small, 0.5rem);
+
+  }
+
+  @include when(background) {
+    background: $--color-table-header;
+  }
+
+
+  @include when(large) {
+    height: $large;
+    font-size: $--font-size-medium;
+  }
+
+  @include when(medium) {
+    height: $medium;
+    font-size: $--font-size;
+  }
+
+  @include when(small) {
+    height: $small;
+    font-size: $--font-size-small;
+  }
+
+  @include e(content) {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    padding: 0 1rem;
+    transform: translateY(-50%);
+    box-sizing: border-box;
+    line-height: $--line-height-small;
+  }
+
+
+  @include e(icon) {
+    color: $--color-primary;
+    padding-right: 0.5rem;
+  }
+
+  @include e(handle) {
+    color: $--color-primary;
+    line-height: $--line-height-small;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    padding-right: 1rem
+  }
+}

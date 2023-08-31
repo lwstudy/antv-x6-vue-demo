@@ -1,0 +1,215 @@
+@import "common/var";
+
+$default-padding: 1.2rem;
+$large-padding: 1rem;
+$medium-padding: 0.8rem;
+$small-padding: 0.5rem;
+
+@include b(panel) {
+  box-sizing: border-box;
+  position: relative;
+
+  > .el-card__header {
+    padding: 0;
+  }
+  > .el-card__body {
+    padding: 0;
+  }
+
+
+  @include e(header) {
+    > .my-header {
+      margin-bottom: 0;
+    }
+  }
+
+  @include e(tabs) {
+    position: relative;
+    padding: $default-padding/2 $default-padding 0 $default-padding;
+    .el-tabs__header {
+      margin-bottom: 0;
+    }
+    .el-tabs__nav-wrap:after {
+      height: 1px;
+    }
+  }
+
+  @include e(handle) {
+    position: absolute;
+    right: $default-padding;
+    top: $default-padding/2;
+  }
+
+  @include e(body) {
+    padding: $default-padding;
+    box-sizing: border-box;
+    @include when(fit) {
+      overflow: auto;
+    }
+  }
+
+  @include e(footer) {
+    padding: $default-padding;
+    box-sizing: border-box;
+    @include when(left) {
+      text-align: left;
+    }
+    @include when(center) {
+      text-align: center;
+    }
+    @include when(right) {
+      text-align: right;
+    }
+    @include when(border-top) {
+      border-top: 1px solid $--color-table-header;
+    }
+    @include when(flag) {
+      border-top: 1px solid $--color-table-header;
+    }
+  }
+
+  @include e(actions) {
+    background: $--color-table-stripe;
+    border-top: 1px solid $--color-table-header;
+  }
+
+  @include when(fit) {
+    height: 100%;
+  }
+
+  @include when(no-border) {
+    border-color: transparent;
+  }
+
+  @include m(flag) {
+    > .el-card__header {
+      border-bottom: 0;
+
+      .my-title__content {
+        left: 1rem;
+      }
+    }
+
+  }
+
+  @include m(background) {
+    > .el-card__header {
+      border-bottom: 0;
+    }
+  }
+
+  @include m(border-top) {
+    &::before {
+      content: '';
+      border-top: $--border-radius-base solid $--color-primary;
+      width: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      border-radius: $--border-radius-base $--border-radius-base 0 0;
+    }
+
+    > .el-card__header {
+      border-bottom: 0;
+    }
+  }
+
+  @include when(large) {
+    @include e(body) {
+      padding: $large-padding;
+    }
+    @include e(footer) {
+      padding: $large-padding;
+    }
+    @include e(tabs) {
+      padding: $large-padding/2 $large-padding 0 $large-padding;
+      .el-tabs__item {
+        height: 50px;
+        line-height: 50px;
+        font-size: 16px;
+      }
+    }
+    @include e(handle) {
+      right: $large-padding;
+      top: $large-padding;
+    }
+  }
+
+  @include when(medium) {
+    @include e(body) {
+      padding: $medium-padding;
+    }
+    @include e(footer) {
+      padding: $medium-padding;
+    }
+    @include e(tabs) {
+      padding: $medium-padding/2 $medium-padding 0 $medium-padding;
+      .el-tabs__item {
+        height: 40px;
+        line-height: 40px;
+      }
+    }
+    @include e(handle) {
+      right: $medium-padding;
+      top: $medium-padding/2;
+    }
+  }
+
+  @include when(small) {
+    @include e(body) {
+      padding: $small-padding;
+    }
+    @include e(footer) {
+      padding: $small-padding;
+    }
+    @include e(tabs) {
+      padding: $small-padding/2 $small-padding 0 $small-padding;
+      .el-tabs__item {
+        height: 36px;
+        line-height: 36px;
+      }
+    }
+    @include e(handle) {
+      right: $small-padding;
+      top: $small-padding/2;
+    }
+  }
+}
+
+.my-panel + .my-panel {
+  margin-top: 1rem;
+}
+
+@include b(panel-action) {
+  text-align: center;
+  display: inline-block;
+  width: 50%;
+  position: relative;
+  line-height: 45px;
+  height: 45px;
+  cursor: pointer;
+  color: $--color-secondary-text;
+  @include when(only-icon) {
+    font-size: 18px;
+  }
+  .my-icon {
+    margin-right: 5px;
+  }
+  &:after {
+    content: '';
+    border-right: 1px solid $--color-divider;
+    height: 1.2rem;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  &:last-child {
+    &:after {
+      display: none;
+    }
+  }
+  &:hover {
+    color: $--color-primary;
+  }
+}

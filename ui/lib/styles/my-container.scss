@@ -1,0 +1,47 @@
+@import "common/var";
+
+@mixin theme($name, $background, $border, $color) {
+  @include m($name) {
+    background-color: $background;
+    color: $color;
+    @include when(border) {
+      border: 1px solid $border
+    }
+  }
+}
+
+@include b(container) {
+  overflow: initial;
+  position: relative;
+  background-color: $--background;
+  color: $--color-normal-text;
+  border-radius: $--border-radius-small;
+  @include e(inner) {
+    height: 100%;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    padding: 1rem;
+  }
+  @include when(shadow) {
+    box-shadow: $--box-shadow-light;
+  }
+  @include when(border) {
+    border: 1px solid $--color-divider;
+  }
+  @include when(fit) {
+    height: 100%;
+  }
+
+  @include theme(primary, $--color-primary-light-10, $--color-primary-light-9, $--color-primary);
+  @include theme(success, $--color-success-lighter, $--color-success-light, $--color-success);
+  @include theme(warning, $--color-warning-lighter, $--color-warning-light, $--color-warning);
+  @include theme(danger, $--color-danger-lighter, $--color-danger-light, $--color-danger);
+  @include theme(info, $--color-table-header, $--color-background, $--color-normal-text);
+
+}
+
+.my-container + .my-container {
+  margin-top: 1rem;
+}

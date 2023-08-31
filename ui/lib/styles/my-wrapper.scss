@@ -1,0 +1,123 @@
+@import "common/var";
+
+$split-size: 14px;
+
+@include b(wrapper) {
+  min-height: 100%;
+  overflow: hidden;
+
+  .my-wrapper__breadcrumb + .my-wrapper__ft {
+    margin-top: $split-size;
+  }
+
+  @include e(breadcrumb) {
+    opacity: 0.6;
+  }
+
+  @include e(header) {
+    padding: 1rem $split-size;
+    background-color: $--background;
+    &.has-links {
+      padding: 1rem $split-size 8px $split-size;
+    }
+    @include when(border-line) {
+      box-shadow: $--box-shadow-base;
+      position: relative;
+      z-index: 2;
+    }
+  }
+
+  @include e(ft) {
+    margin: 0;
+  }
+
+  @include e(actions) {
+    .el-button-group + .el-button {
+      margin-left: 10px;
+    }
+    .el-button + .el-dropdown {
+      margin-left: 10px;
+    }
+  }
+
+  @include e(back) {
+    margin-right: 1rem;
+    cursor: pointer;
+    i {
+      font-weight: bold;
+    }
+    &:hover {
+      color: $--color-primary;
+    }
+
+  }
+
+  @include e(title) {
+    padding: 0;
+    font-size: 20px;
+    line-height: 1.5em;
+  }
+
+  @include e(sub-title) {
+    font-size: 14px;
+    color: $--color-secondary-text;
+    line-height: 30px;
+    margin-left: 12px;
+  }
+
+  @include e(extra) {
+    padding-top: 1rem;
+    line-height: $--line-height-normal;
+    font-size: $--font-size-small;
+  }
+
+  @include e(footer) {
+    margin: $split-size;;
+  }
+
+  @include e(links) {
+    font-size: 1rem;
+    margin-top: $split-size;
+    line-height: 1.5em;
+  }
+
+  @include e(links-item) {
+    margin-right: 2rem;
+    cursor: pointer;
+    padding: 8px;
+    &:hover {
+      color: $--color-primary-light-6;
+    }
+    &.is-active {
+      color: $--color-primary;
+      border-bottom: 2px solid $--color-primary;
+    }
+  }
+
+  @include when(split) {
+    background-color: $--color-split;
+    @include e(body) {
+      padding: $split-size;
+    }
+
+    @include when(no-header) {
+      padding-top: $split-size;
+      @include e(body) {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+      }
+    }
+  }
+
+  @include when(fit) {
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+    @include e(body) {
+      flex: 1;
+      overflow: auto;
+    }
+  }
+
+
+}

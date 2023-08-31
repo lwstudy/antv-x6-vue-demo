@@ -1,0 +1,41 @@
+@import "common/var";
+
+@include b(form) {
+
+  @include e(footer) {
+    @include when(align-right) {
+      text-align: right;
+    }
+    @include when(align-center) {
+      text-align: center;
+    }
+    @include when(align-left) {
+      text-align: left;
+    }
+    @include when(block) {
+      display: block;
+      width: 100%;
+    }
+    @include when(float-right) {
+      float: right;
+    }
+  }
+
+  @include e(collapse) {;
+  }
+
+  &.el-form--inline .my-form__footer {
+    padding-right: 10px;
+
+    &.el-form-item--small, &.el-form-item--mini {
+      margin-top: -1px;
+    }
+  }
+  &.el-form--label-top .el-form-item__label {
+    padding: 0;
+  }
+}
+
+.my-detail-item__content > .el-form-item {
+  margin: 0 !important;
+}

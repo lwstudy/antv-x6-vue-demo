@@ -1,0 +1,18 @@
+@import "common/var";
+
+@include b(radio) {
+  clear: left;
+  line-height: 32px;
+  &.has-label-width {
+    clear: initial;
+  }
+  .el-radio {
+    line-height: inherit;
+  }
+}
+
+.my-form.el-form--inline {
+  @include b(radio) {
+    clear: initial;
+  }
+}

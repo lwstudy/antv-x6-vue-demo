@@ -1,0 +1,10 @@
+.my-key-val-list.el-row{
+  display: flex;
+  flex-flow: row wrap; 
+  .my-description{
+    // margin-bottom: 0px;
+    &__title{
+      padding-right: 4px;
+    }
+  }
+}

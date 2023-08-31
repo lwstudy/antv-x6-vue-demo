@@ -1,0 +1,25 @@
+@import "common/var";
+
+@include b(timer) {
+  display: inline-block;
+
+  @include when(primary) {
+    color: $--color-primary;
+  }
+
+  @include when(success) {
+    color: $--color-success;
+  }
+
+  @include when(warning) {
+    color: $--color-warning;
+  }
+
+  @include when(danger) {
+    color: $--color-danger;
+  }
+
+  @include when(info) {
+    color: $--color-info;
+  }
+}

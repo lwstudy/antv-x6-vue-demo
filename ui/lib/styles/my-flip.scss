@@ -1,0 +1,141 @@
+.my-flip {
+  display: inline-block;
+  position: relative;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .8);
+  // border: 1px solid #111;
+  color: #fff;
+  font-family: helvetica neue, Helvetica, sans-serif;
+  font-weight: 700;
+
+  &__mini {
+    font-size: 40px;
+    width: 40px;
+    height: 60px;
+    line-height: 60px;
+  }
+  &__small {
+    font-size: 70px;
+    width: 56px;
+    height: 80px;
+    line-height: 80px;
+  }
+  &__medium {
+    font-size: 90px;
+    width: 70px;
+    height: 100px;
+    line-height: 100px;
+  }
+
+  &__top, &__shadow-top, &__bottom, &__shadow-bottom {
+    position: absolute;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    height: 50%;
+    padding: 0 10px;
+    text-align: center;
+  }
+
+  &__top, &__shadow-top {
+    border-bottom: 1px solid #333;
+    box-sizing: border-box;
+    top: 0;
+    z-index: 0;
+    border-radius: 10px 10px 0 0;
+    &::before {
+      content: "";
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      left: 0;
+      top: 0
+    }
+
+    .my-flip-previous & {
+      opacity: 1;
+      z-index: 2;
+      -webkit-transform-origin: 50% 100%;
+      -webkit-animation: flipTop .3s ease-in both;
+      transform-origin: 50% 100%;
+      animation: flipTop .3s ease-in both;
+    }
+  }
+
+  &__shadow-top {
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(0, 0, 0, 0)), to(black));
+    width: 100%;
+    opacity: 0;
+    -webkit-transition: opacity .3s ease-in
+  }
+
+  &__bottom, &__shadow-bottom { 
+    bottom: 0;
+    z-index: 0;
+    border-radius: 0 0 10px 10px;
+    box-sizing: border-box;
+    &:before {
+      content: ""; 
+      border-radius: 0 0 10px 10px;
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      left: 0;
+      top: 0
+    }
+
+    .my-flip-previous & {
+      z-index: 1;
+      opacity: 1
+    }
+  }
+
+  &__bottom {
+    .my-flip__wrap {
+      display: block;
+      //margin-top: -100%
+    }
+  }
+
+  &__shadow-bottom {
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(black), to(rgba(0, 0, 0, 0)));
+    opacity: 0;
+    -webkit-transition: opacity .3s ease-in;
+    //width: 50px;
+    width: 100%;
+  }
+
+  // 翻页效果
+  &__top {
+    .my-flip-active & {
+      z-index: 1
+    }
+  }
+  &__bottom {
+    .my-flip-active & {
+      z-index: 2;
+      -webkit-transform-origin: 50% 0%;
+      -webkit-animation: flipBottom .3s .3s ease-out both;
+      transform-origin: 50% 0%;
+      animation: flipBottom .3s .3s ease-out both;
+    }
+  }
+}
+
+@-webkit-keyframes flipTop {
+  0% {
+    -webkit-transform: perspective(400px) rotateX(0deg)
+  }
+  100% {
+    -webkit-transform: perspective(400px) rotateX(-90deg)
+  }
+}
+
+@-webkit-keyframes flipBottom {
+  0% {
+    -webkit-transform: perspective(400px) rotateX(90deg)
+  }
+  100% {
+    -webkit-transform: perspective(400px) rotateX(0deg)
+  }
+}

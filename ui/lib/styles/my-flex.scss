@@ -1,0 +1,104 @@
+@import "common/var";
+
+@include b(flex) {
+  display: flex;
+
+  @include when(border) {
+    border-top: 1px solid $--color-divider;
+    border-left: 1px solid $--color-divider;
+    > .my-flex-item {
+      border-right: 1px solid $--color-divider;
+      border-bottom: 1px solid $--color-divider;
+    }
+  }
+
+
+  @include when(inline) {
+    display: inline-flex;
+  }
+
+  @include when(fit) {
+    width: 100%;
+    height: 100%;
+  }
+
+  @include when(direction-row) {
+    flex-direction: row
+  }
+  @include when(direction-row-reverse) {
+    flex-direction: row-reverse
+  }
+  @include when(direction-column) {
+    flex-direction: column
+  }
+  @include when(direction-column-reverse) {
+    flex-direction: column-reverse
+  }
+
+  @include when(wrap-nowrap) {
+    flex-wrap: nowrap;
+  }
+
+  @include when(wrap-wrap) {
+    flex-wrap: wrap;
+  }
+  @include when(wrap-wrap-reverse) {
+    flex-wrap: wrap-reverse;
+  }
+
+  @include when(justify-flex-start) {
+    justify-content: flex-start;
+  }
+  @include when(justify-flex-end) {
+    justify-content: flex-end;
+  }
+  @include when(justify-center) {
+    justify-content: center;
+  }
+  @include when(justify-space-between) {
+    justify-content: space-between;
+  }
+  @include when(justify-space-around) {
+    justify-content: space-around;
+  }
+
+  @include when(align-items-stretch) {
+    align-items: stretch;
+
+  }
+  @include when(align-items-flex-start) {
+    align-items: flex-start;
+  }
+  @include when(align-items-flex-end) {
+    align-items: flex-end;
+  }
+  @include when(align-items-center) {
+    align-items: center;
+  }
+  @include when(align-items-baseline) {
+    align-items: baseline;
+
+    > .my-flex-item > .my-flex-item__inner {
+      position: static;
+    }
+  }
+
+  @include when(align-content-stretch) {
+    align-content: stretch;
+  }
+  @include when(align-content-flex-start) {
+    align-content: flex-start;
+  }
+  @include when(align-content-flex-end) {
+    align-content: flex-end;
+  }
+  @include when(align-content-center) {
+    align-content: center;
+  }
+  @include when(align-content-space-between) {
+    align-content: space-between;
+  }
+  @include when(align-content-space-around) {
+    align-content: space-around;
+  }
+}

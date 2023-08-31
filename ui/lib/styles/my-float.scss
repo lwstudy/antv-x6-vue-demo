@@ -1,0 +1,10 @@
+@import "common/var";
+
+@include b(float) {
+  @include utils-clearfix;
+
+  @include m(fit) {
+    height: 100%;
+  }
+
+}

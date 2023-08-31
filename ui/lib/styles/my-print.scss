@@ -1,0 +1,37 @@
+.my-print-preview-title {
+  text-align: center;
+  .title {
+    line-height: 50px;
+    font-weight: 600;
+    font-size: 18px;
+  }
+  .my-print-preview-close {
+    float: right;
+    margin-top: 10px;
+    margin-right: 20px;
+    color: #888;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px 10px;
+  }
+}
+.my-print-displaynone {
+  display: none
+}
+@media print {
+    @page {
+      size: 0;
+      margin: 0;
+      /**是否显示标题 和链接 ，不显示改为0**/
+    }
+    .my-print-page-break {
+      page-break-after:always;
+    }
+    .my-print-hide{
+      display: none;
+    }
+    .my-print-visible{
+      display: block;
+    }
+  }

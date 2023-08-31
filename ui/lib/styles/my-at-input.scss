@@ -1,0 +1,48 @@
+.my-at-input.el-input{
+  .el-input__inner{
+    display: none;
+  }
+  .el-input-group__append{
+    background-color: none; 
+    display: block;
+    position: relative;
+    border: 0px solid rgba(0,0,0,.15);
+    border-radius: 0px;
+    padding: 0px;
+    & > .el-input__inner{
+      display: block;
+      border-radius: 4px;
+    }
+    .content-edit{
+     
+      &.input-type{
+        overflow: hidden; 
+        div{
+          display: inline;
+        }
+        br {
+          display: none
+        }
+      }
+      &.textarea-type{
+        padding-top: 5px;
+        line-height: 1.5; 
+        word-wrap:break-word;  
+        word-break:break-all; 
+        white-space:pre-wrap; 
+        overflow: auto;
+      }
+
+      &:empty:before{
+        content:attr(placeholder); 
+        color: #999;
+      }
+    } 
+    .popup-btn{
+      position: fixed;
+      width: 3px;
+      height: 3px;
+      pointer-events: none;
+    } 
+  }
+}

@@ -1,0 +1,190 @@
+@import "common/var";
+
+$default-size-padding: 24px;
+$small-size-padding: 16px;
+$large-size-padding: 32px;
+$mini-size-padding: 8px;
+$default-size-font: $--font-size;
+$small-size-font: $--font-size-small;
+$mini-size-font: $--font-size-extra-small;
+$large-size-font: $--font-size;
+
+@mixin size($size, $value, $font) {
+
+  @include when($size) {
+    font-size: $font;
+    @include e(header) {
+      padding: $value/2 $value;
+    }
+    @include e(footer) {
+      padding: $value/2 $value;
+    }
+    @include e(item) {
+      padding: $value/2 $value;
+    }
+    @include e(pager) {
+      padding: $value/2 $value;
+    }
+  }
+}
+
+@include b(list) {
+  font-size: $default-size-font;
+  line-height: $--line-height-normal;
+  .my-header {
+    padding: 0;
+    margin: 0;
+  }
+
+  @include when(border) {
+    border: 1px solid $--color-border;
+    border-radius: $--border-radius-base;
+  }
+
+  @include when(split) {
+    .my-list__item + .my-list__item {
+      border-top: 1px solid $--color-divider;
+    }
+    @include e(header) {
+      border-bottom: 1px solid $--color-divider;
+    }
+    @include e(footer) {
+      border-top: 1px solid $--color-divider;
+    }
+  }
+
+  @include when(split-columns) {
+    .my-list__item {
+      border-top: 1px solid $--color-divider;
+      border-left: 1px solid $--color-divider;
+      @include when(first-column) {
+        border-left: 0;
+      }
+      @include when(first-row) {
+        border-top: 0
+      }
+    }
+    @include e(header) {
+      border-bottom: 1px solid $--color-divider;
+    }
+    @include e(footer) {
+      border-top: 1px solid $--color-divider;
+    }
+
+    @include e(pager) {
+      border-top: 1px solid $--color-divider;
+    }
+
+    @include e(scroll-loading) {
+      border-top: 1px solid $--color-divider;
+
+    }
+    @include e(complete) {
+      border-top: 1px solid $--color-divider;
+    }
+  }
+
+  @include when(multiple-columns) {
+    .my-list__content {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+  }
+
+  @include when(fit) {
+    height: 100%;
+    @include e(wrapper) {
+      overflow: auto;
+    }
+  }
+
+  @include e(header) {
+    padding: $default-size-padding/2 $default-size-padding;
+  }
+
+  @include e(footer) {
+    padding: $default-size-padding/2 $default-size-padding;
+  }
+
+  @include e(item) {
+    padding: $default-size-padding/2 $default-size-padding;
+    display: inline-block;
+    vertical-align: top;
+    line-height: $--line-height-normal;
+    @include when(stripe) {
+      background-color: $--color-table-stripe;
+    }
+  }
+
+  @include e(pager) {
+    padding: $default-size-padding/2 $default-size-padding !important;
+    text-align: left;
+    @include when(align-right) {
+      text-align: right;
+    }
+    @include when(align-center) {
+      text-align: center;
+    }
+  }
+
+  @include e(empty) {
+    padding: $default-size-padding;
+    text-align: center;
+    height: 100%;
+    color: $--color-info;
+  }
+
+  @include e(error) {
+    padding: $default-size-padding;
+    text-align: center;
+    color: $--color-info;
+  }
+
+  @include e(scroll-loading) {
+    position: relative;
+    padding: $default-size-padding;
+    text-align: center;
+    width: 100%;
+  }
+
+  @include e(complete) {
+    padding: $default-size-padding;
+    text-align: center;
+    color: $--color-secondary-text;
+  }
+
+  @include e(content) {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    min-height: 50px;
+  }
+
+  @include e(wrapper) {
+    position: relative;
+    @include when(virtual) {
+      @include e(content) {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+      }
+    }
+  }
+
+  @include e(placeholder) {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    z-index: -1;
+  }
+
+  @include size(small, $small-size-padding, $small-size-font);
+  @include size(large, $large-size-padding, $large-size-font);
+  @include size(mini, $mini-size-padding, $mini-size-font);
+
+
+}
+

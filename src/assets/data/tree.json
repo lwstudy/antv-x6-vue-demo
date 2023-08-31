@@ -1,0 +1,368 @@
+[
+  {
+    "id": "zhinan",
+    "parentId": null,
+    "label": "指南",
+    "value": "zhinan"
+  },
+  {
+    "id": "shejiyuanze",
+    "parentId": "zhinan",
+    "label": "设计原则",
+    "value": "shejiyuanze"
+  },
+  {
+    "id": "yizhi",
+    "parentId": "shejiyuanze",
+    "label": "一致",
+    "value": "yizhi"
+  },
+  {
+    "id": "fankui",
+    "parentId": "shejiyuanze",
+    "label": "反馈",
+    "value": "fankui"
+  },
+  {
+    "id": "xiaolv",
+    "parentId": "shejiyuanze",
+    "label": "效率",
+    "value": "xiaolv"
+  },
+  {
+    "id": "kekong",
+    "parentId": "shejiyuanze",
+    "label": "可控",
+    "value": "kekong"
+  },
+  {
+    "id": "daohang",
+    "parentId": "zhinan",
+    "label": "导航",
+    "value": "daohang"
+  },
+  {
+    "id": "cexiangdaohang",
+    "parentId": "daohang",
+    "label": "侧向导航",
+    "value": "cexiangdaohang"
+  },
+  {
+    "id": "dingbudaohang",
+    "parentId": "daohang",
+    "label": "顶部导航",
+    "value": "dingbudaohang"
+  },
+  {
+    "id": "zujian",
+    "parentId": null,
+    "label": "组件",
+    "value": "zujian"
+  },
+  {
+    "id": "basic",
+    "parentId": "zujian",
+    "label": "Basic",
+    "value": "basic"
+  },
+  {
+    "id": "layout",
+    "parentId": "basic",
+    "label": "Layout 布局",
+    "value": "layout"
+  },
+  {
+    "id": "color",
+    "parentId": "basic",
+    "label": "Color 色彩",
+    "value": "color"
+  },
+  {
+    "id": "typography",
+    "parentId": "basic",
+    "label": "Typography 字体",
+    "value": "typography"
+  },
+  {
+    "id": "icon",
+    "parentId": "basic",
+    "label": "Icon 图标",
+    "value": "icon"
+  },
+  {
+    "id": "button",
+    "parentId": "basic",
+    "label": "Button 按钮",
+    "value": "button"
+  },
+  {
+    "id": "form",
+    "parentId": "zujian",
+    "label": "Form",
+    "value": "form"
+  },
+  {
+    "id": "radio",
+    "parentId": "form",
+    "label": "Radio 单选框",
+    "value": "radio"
+  },
+  {
+    "id": "checkbox",
+    "parentId": "form",
+    "label": "Checkbox 多选框",
+    "value": "checkbox"
+  },
+  {
+    "id": "input",
+    "parentId": "form",
+    "label": "Input 输入框",
+    "value": "input"
+  },
+  {
+    "id": "input-number",
+    "parentId": "form",
+    "label": "InputNumber 计数器",
+    "value": "input-number"
+  },
+  {
+    "id": "select",
+    "parentId": "form",
+    "label": "Select 选择器",
+    "value": "select"
+  },
+  {
+    "id": "cascader",
+    "parentId": "form",
+    "label": "Cascader 级联选择器",
+    "value": "cascader"
+  },
+  {
+    "id": "switch",
+    "parentId": "form",
+    "label": "Switch 开关",
+    "value": "switch"
+  },
+  {
+    "id": "slider",
+    "parentId": "form",
+    "label": "Slider 滑块",
+    "value": "slider"
+  },
+  {
+    "id": "time-picker",
+    "parentId": "form",
+    "label": "TimePicker 时间选择器",
+    "value": "time-picker"
+  },
+  {
+    "id": "date-picker",
+    "parentId": "form",
+    "label": "DatePicker 日期选择器",
+    "value": "date-picker"
+  },
+  {
+    "id": "datetime-picker",
+    "parentId": "form",
+    "label": "DateTimePicker 日期时间选择器",
+    "value": "datetime-picker"
+  },
+  {
+    "id": "upload",
+    "parentId": "form",
+    "label": "Upload 上传",
+    "value": "upload"
+  },
+  {
+    "id": "rate",
+    "parentId": "form",
+    "label": "Rate 评分",
+    "value": "rate"
+  },
+  {
+    "id": "form",
+    "parentId": "form",
+    "label": "Form 表单",
+    "value": "form"
+  },
+  {
+    "id": "data",
+    "parentId": "zujian",
+    "label": "Data",
+    "value": "data"
+  },
+  {
+    "id": "table",
+    "parentId": "data",
+    "label": "Table 表格",
+    "value": "table"
+  },
+  {
+    "id": "tag",
+    "parentId": "data",
+    "label": "Tag 标签",
+    "value": "tag"
+  },
+  {
+    "id": "progress",
+    "parentId": "data",
+    "label": "Progress 进度条",
+    "value": "progress"
+  },
+  {
+    "id": "tree",
+    "parentId": "data",
+    "label": "Tree 树形控件",
+    "value": "tree"
+  },
+  {
+    "id": "pagination",
+    "parentId": "data",
+    "label": "Pagination 分页",
+    "value": "pagination"
+  },
+  {
+    "id": "badge",
+    "parentId": "data",
+    "label": "Badge 标记",
+    "value": "badge"
+  },
+  {
+    "id": "notice",
+    "parentId": "zujian",
+    "label": "Notice",
+    "value": "notice"
+  },
+  {
+    "id": "alert",
+    "parentId": "notice",
+    "label": "Alert 警告",
+    "value": "alert"
+  },
+  {
+    "id": "loading",
+    "parentId": "notice",
+    "label": "Loading 加载",
+    "value": "loading"
+  },
+  {
+    "id": "message",
+    "parentId": "notice",
+    "label": "Message 消息提示",
+    "value": "message"
+  },
+  {
+    "id": "message-box",
+    "parentId": "notice",
+    "label": "MessageBox 弹框",
+    "value": "message-box"
+  },
+  {
+    "id": "notification",
+    "parentId": "notice",
+    "label": "Notification 通知",
+    "value": "notification"
+  },
+  {
+    "id": "navigation",
+    "parentId": "zujian",
+    "label": "Navigation",
+    "value": "navigation"
+  },
+  {
+    "id": "menu",
+    "parentId": "navigation",
+    "label": "NavMenu 导航菜单",
+    "value": "menu"
+  },
+  {
+    "id": "tabs",
+    "parentId": "navigation",
+    "label": "Tabs 标签页",
+    "value": "tabs"
+  },
+  {
+    "id": "breadcrumb",
+    "parentId": "navigation",
+    "label": "Breadcrumb 面包屑",
+    "value": "breadcrumb"
+  },
+  {
+    "id": "dropdown",
+    "parentId": "navigation",
+    "label": "Dropdown 下拉菜单",
+    "value": "dropdown"
+  },
+  {
+    "id": "steps",
+    "parentId": "navigation",
+    "label": "Steps 步骤条",
+    "value": "steps"
+  },
+  {
+    "id": "others",
+    "parentId": "zujian",
+    "label": "Others",
+    "value": "others"
+  },
+  {
+    "id": "dialog",
+    "parentId": "others",
+    "label": "Dialog 对话框",
+    "value": "dialog"
+  },
+  {
+    "id": "tooltip",
+    "parentId": "others",
+    "label": "Tooltip 文字提示",
+    "value": "tooltip"
+  },
+  {
+    "id": "popover",
+    "parentId": "others",
+    "label": "Popover 弹出框",
+    "value": "popover"
+  },
+  {
+    "id": "card",
+    "parentId": "others",
+    "label": "Card 卡片",
+    "value": "card"
+  },
+  {
+    "id": "carousel",
+    "parentId": "others",
+    "label": "Carousel 走马灯",
+    "value": "carousel"
+  },
+  {
+    "id": "collapse",
+    "parentId": "others",
+    "label": "Collapse 折叠面板",
+    "value": "collapse"
+  },
+  {
+    "id": "ziyuan",
+    "parentId": null,
+    "label": "资源",
+    "value": "ziyuan"
+  },
+  {
+    "id": "axure",
+    "parentId": "ziyuan",
+    "label": "Axure Components",
+    "value": "axure"
+  },
+  {
+    "id": "sketch",
+    "parentId": "ziyuan",
+    "label": "Sketch Templates",
+    "value": "sketch"
+  },
+  {
+    "id": "jiaohu",
+    "parentId": "ziyuan",
+    "label": "组件交互文档",
+    "value": "jiaohu"
+  }
+]

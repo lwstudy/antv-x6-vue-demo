@@ -1,0 +1,18 @@
+@import "common/var";
+
+@include b(range) {
+  white-space: nowrap;
+  display: inline-block;
+  width: 100%;
+  @include e(separator) {
+    display: inline-block;
+    vertical-align: middle;
+    width: 20px;
+    text-align: center;
+    color: $--color-secondary-text;
+  }
+
+  @include e(input) {
+    width: calc(50% - 10px) !important;
+  }
+}

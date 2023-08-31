@@ -1,0 +1,108 @@
+@import "common/var";
+
+$large: 40px;
+$default: 32px;
+$small: 24px;
+
+
+@mixin avatar-size($size, $font-size) {
+  width: $size;
+  height: $size;
+  line-height: $size;
+  border-radius: $--border-radius-circle;
+  font-size: 0;
+  border: 1px solid $--background;
+
+  @include e(string) {
+    position: absolute;
+    left: 50%;
+    transform-origin: 0 center;
+    font-size: initial;
+  }
+  @include e(icon) {
+    font-size: $font-size;
+    line-height: inherit;
+  }
+
+}
+
+
+@include b(avatar) {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  color: $--color-primary-light-10;
+  white-space: nowrap;
+  text-align: center;
+  vertical-align: middle;
+  background: $--color-info;
+  &:before, &:after {
+    font-size: 0;
+  }
+  > img {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  @include e(icon) {
+    line-height: inherit !important;
+  }
+  @include m(image) {
+    background: transparent;
+  }
+  @include m(text) {
+    font-size: 14px;
+  }
+
+
+  @include when(pointer) {
+    cursor: pointer;
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+
+  @include avatar-size($default, $default*2/3);
+
+  @include when(large) {
+    @include avatar-size($large, $large*2/3);
+  }
+
+  @include when(small) {
+    @include avatar-size($small, $small*2/3);
+  }
+
+  @include when(custom-size) {
+    @include e(icon) {
+      font-size: inherit;
+    }
+  }
+
+  @include when(square) {
+    border-radius: $--border-radius-base;
+  }
+
+  @include when(primary) {
+    color: $--color-primary-light-9;
+    background: $--color-primary-light-4;
+  }
+
+  @include when(success) {
+    color: $--color-success-lighter;
+    background: $--color-success;
+  }
+
+  @include when(warning) {
+    color: $--color-warning-lighter;
+    background: $--color-warning;
+  }
+
+  @include when(danger) {
+    color: $--color-danger-lighter;
+    background: $--color-danger;
+  }
+
+
+}
+

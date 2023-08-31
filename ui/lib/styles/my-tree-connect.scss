@@ -1,0 +1,90 @@
+@import "./common/var";
+
+$default-color: $--color-info;
+// $default-color-d: $--color-info;
+
+.el-tree.is-line {
+  // 最左边折叠/展开图标 （默认状态）
+  .el-tree-node__expand-icon {
+    position: relative;
+    transform: none;
+    transition: none;
+    color: $default-color;
+    &:before {
+      content: '+';
+      box-sizing: border-box;
+      display: inline-block;
+      border: 1px solid $default-color;
+      border-radius: 2px;
+      text-align: center;
+      width: 14px;
+      height: 14px;
+      font-size: 14px;
+      line-height: 11px;
+      margin-top: 2px;
+    }
+  }
+  // 最左边折叠/展开图标 （展开状态）
+  .el-tree-node__expand-icon.expanded {
+    transform: none;
+    transition: none;
+    &:before {
+      content: '-';
+    }
+  }
+
+  .el-tree-node__expand-icon.is-leaf{
+    border-left: none;
+    border-right: 0 solid transparent;
+    &:before {
+      content: '';
+      display: inline-block;
+      border: none;
+    }
+  }
+
+
+  div[role=group] {
+    position: relative;
+    // 纵向虚线 （树节点整体背景 用 重复纵向虚线）
+    .el-tree-node {
+
+      // 树状的内容展示区域 设置bg-image为白色遮住部分虚线（展示当前层级内容前面的纵向虚线）
+      .el-tree-node__content {
+        position: relative;
+      }
+
+      // 最左边折叠/展开图标 （无扩展类型） 需要在元素中间添加一条水平虚线（用作延长）
+      .el-tree-node__expand-icon.is-leaf {
+        &:before {
+          content: '';
+          display: inline-block;
+          height: 12px;
+          width: 12px;
+          border: none;
+          background-repeat: no-repeat;
+          background-image: repeating-linear-gradient(90deg, $default-color 0, $default-color 1px, transparent 1px, transparent 2px);
+          background-position: 0 calc(50% - 2px);
+          background-size: 100% 1px;
+        }
+      }
+    }
+
+
+    // 每个树节点 前面的 虚线 包括横向和纵向， 纵向虚线设置绝对大的高度
+    .el-tree-node__expand-icon::after {
+      content: '';
+      position: absolute;
+      display: block;
+      height: 99999px; // 足够大的虚线值
+      width: 12px;
+      left: -6px;
+      bottom: calc(50% + 1px);
+      background-repeat: no-repeat;
+      background-image: repeating-linear-gradient($default-color 0px, $default-color 1px, transparent 1px, transparent 2px),
+      repeating-linear-gradient(90deg, $default-color 0px, $default-color 1px, transparent 1px, transparent 2px);
+      background-position: 0 0, 0 100%;
+      background-size:1px 100%, 100% 1px;
+    }
+  }
+}

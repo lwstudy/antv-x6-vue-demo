@@ -1,0 +1,153 @@
+@import "common/var";
+
+$tab-width: 225px;
+$tab-item-height: 58px;
+$tab-item-height-card: 40px;
+
+@include b(tabs) {
+  .my-container__inner {
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+  }
+
+
+  @include e(tabs) {
+    flex-shrink: 0;
+  }
+
+  @include e(body) {
+    overflow: auto;
+    height: 100%;
+    padding: 1rem;
+    width: 100%;
+  }
+
+  @include when(left) {
+    @include e(tabs) {
+      width: $tab-width;
+      padding: 1rem 0;
+      .el-tabs__header {
+        width: 100%;
+      }
+      .el-tabs__item {
+        text-align: left;
+
+        &.is-active {
+          background: $--color-table-header;
+        }
+      }
+      .el-tabs__active-bar {
+        width: 4px !important;
+      }
+    }
+  }
+
+  @include when(right) {
+    .my-container__inner {
+      flex-direction: row-reverse;
+    }
+
+    @include e(tabs) {
+      width: $tab-width;
+      padding: 1rem 0;
+      .el-tabs__header {
+        width: 100%;
+      }
+      .el-tabs__item {
+        text-align: left;
+
+        &.is-active {
+          background: $--color-table-header;
+        }
+      }
+      .el-tabs__active-bar {
+        width: 4px !important;
+      }
+    }
+  }
+
+  @include when(top) {
+    .my-container__inner {
+      flex-direction: column;
+    }
+    .el-tabs__header {
+      margin-bottom: 0;
+    }
+    .el-tabs__item {
+      height: $tab-item-height;
+      line-height: $tab-item-height;
+    }
+    .el-tabs__nav-next, .el-tabs__nav-prev {
+      top: 7px;
+    }
+
+
+    @include e(tabs) {
+      width: 100%;
+      .el-tabs__nav {
+        margin: 0 14px;
+
+        &.is-stretch {
+          margin: 0;
+        }
+      }
+      .el-tabs__nav-wrap:after {
+        height: 1px;
+      }
+
+    }
+  }
+
+  @include when(fixed) {
+    @include e(tabs) {
+      .el-tabs__nav {
+
+        &.is-left {
+          width: 225px;
+          position: fixed;
+        }
+
+        &.is-right {
+          position: fixed;
+          width: 225px;
+          margin-left: 1px;
+        }
+      }
+    }
+
+
+  }
+
+  @include when(card) {
+    overflow: visible;
+    margin-top: $tab-item-height-card;
+    border-top: none !important;
+    @include e(tabs) {
+      position: absolute;
+      width: calc(100% + 2px);
+      height: $tab-item-height-card;
+      top: -$tab-item-height-card;
+      left: -1px;
+      .el-tabs__nav {
+        margin: 0 !important;
+      }
+    }
+    .el-tabs__item {
+      background-color: $--color-table-stripe;
+      height: $tab-item-height-card !important;
+      line-height: $tab-item-height-card !important;
+    }
+    .el-tabs__item.is-top.is-active {
+      background-color: $--background;
+    }
+    .el-tabs__nav-next, .el-tabs__nav-prev {
+      top: 0 !important;
+    }
+    @include when(fit) {
+      height: calc(100% - 40px);
+    }
+  }
+
+
+}

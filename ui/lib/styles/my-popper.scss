@@ -1,0 +1,17 @@
+body{
+  .el-popover.el-popper.my-theme-popup{
+    background: transparent !important;
+    box-shadow: none !important;
+    border: 0px solid !important;
+    padding: 0 !important;
+    min-width: 0;
+    margin: 0 !important;
+
+    .popper__arrow{
+      display: none;
+    }
+    &__body{
+      position: relative;
+    }
+  }
+}

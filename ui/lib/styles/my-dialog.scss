@@ -1,0 +1,178 @@
+@import "common/var";
+
+@include b(dialog) {
+  box-shadow: $--box-shadow-base;
+  position: absolute;
+  border-radius: $--border-radius-base;
+  overflow: hidden;
+  pointer-events: auto;
+  .my-layout__default {
+    overflow: auto !important;
+  }
+
+
+  @include e(wrapper) {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  @include e(modal) {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    pointer-events: auto;
+  }
+
+  @include m(src) {
+    .my-dialog-panel__main {
+      padding: 0;
+      overflow: hidden;
+    }
+  }
+
+}
+
+@include b(dialog-panel) {
+  border-radius: 0 0 $--border-radius-base $--border-radius-base;
+  background: $--background;
+
+  @include e(header) {
+    height: 46px;
+    line-height: 46px;
+    position: relative;
+    padding: 0 12px;
+
+    .my-icon {
+      margin-top: -4px;
+      vertical-align: middle !important;
+    }
+  }
+
+  @include e(title) {
+    font-size: $--font-size-normal;
+  }
+
+  @include e(icon) {
+    margin-right: 4px;
+
+  }
+
+  @include e(tool) {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding-right: 12px;
+    font-size: 20px;
+    .my-icon {
+      border-radius: $--border-radius-circle;
+      background: $--color-info;
+      margin-left: 8px;
+      cursor: pointer;
+      font-size: 1.3em;
+      &:hover {
+        opacity: 0.7;
+      }
+
+      &.icon-close {
+        background: $--color-danger;
+      }
+
+      &.icon-window, &.icon-maximize {
+        background: $--color-success;
+      }
+
+      &.icon-minimize {
+        background: $--color-warning;
+      }
+    }
+  }
+
+  @include e(footer) {
+    line-height: 54px;
+    padding: 0 12px;
+    text-align: right;
+  }
+
+  @include e(main) {
+    padding: 12px;
+    width: 100%;
+
+    @include when(has-height) {
+      position: absolute;
+      height: 100%;
+    }
+  }
+
+  @include when(primary) {
+    // border: 1px solid $--color-primary; // 暂时撤去边框
+    border-top: none;
+    @include e(header) {
+      // background: $--color-primary;
+      background: linear-gradient(90deg, $--color-primary, $--color-primary-light-8);
+      color: $--color-primary-light-10;
+    }
+    @include e(footer) {
+      background: $--color-table-stripe;
+    }
+  }
+
+  @include when(dark) {
+    // border: 1px solid $--dialog-dark-border-color; // 暂时撤去边框
+    border-top: none;
+    @include e(header) {
+      // background: $--dialog-dark-border-color;
+      background: linear-gradient(90deg, $--dialog-dark-border-color, $--color-primary-light-4);
+      color: $--color-primary-light-10;
+    }
+    @include e(footer) {
+      background: $--color-table-stripe;
+    }
+  }
+
+  @include when(light) {
+    //border: 1px solid $--color-primary-light-1;
+    border-top: none;
+    @include e(title) {
+      color: $--color-primary-text;
+    }
+    @include e(icon) {
+      color: $--color-primary;
+    }
+    @include e(tool) {
+      color: $--color-primary-light-10;
+    }
+    @include e(footer) {
+      //background: $--color-table-stripe;
+    }
+    @include e(header) {
+      position: relative;
+      &:after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        overflow: hidden;
+        left: 0;
+        bottom: 0;
+        background: linear-gradient(to right, #f100db, #00eced, #0c76e5, green, yellow, orange, red);
+      }
+    }
+  }
+}
+
+@include b(dialog-frame) {
+  width: 100%;
+  height: 100%;
+}
+
+body[class^=my-dialog-hidden] {
+  overflow: hidden;
+}

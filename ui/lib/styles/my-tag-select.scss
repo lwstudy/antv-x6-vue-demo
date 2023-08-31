@@ -1,0 +1,109 @@
+@import "common/var";
+
+$size-default: 40px;
+$size-medium: 36px;
+$size-small: 32px;
+$size-mini: 28px;
+
+@include b(tag-select) {
+  position: relative;
+  padding-right: 60px;
+  line-height: $size-default;
+  transition: all 0.3s;
+  max-height: 9000px;
+  width: 100%;
+  overflow: hidden;
+
+  @include e(tag) {
+    margin-right: 24px;
+    cursor: pointer;
+    white-space: nowrap;
+    display: inline-block;
+    font-size: $--font-size !important;
+    @include when(disabled) {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+
+  @include e(expand) {
+    position: absolute;
+    right: 0;
+    top: 0;
+    line-height: $size-default;
+    cursor: pointer;
+    font-size: $--font-size !important;
+  }
+
+  @include when(collapsed) {
+    max-height: $size-default;
+    overflow: hidden;
+  }
+
+  @include when(disabled) {
+    @include e(tag) {
+      cursor: pointer;
+      opacity: 0.5;
+    }
+  }
+
+  @include m(medium) {
+    line-height: $size-medium;
+    @include e(expand) {
+      font-size: $--font-size-small !important;
+      line-height: $size-medium;
+    }
+    @include e(tag) {
+      margin-right: 20px;
+      font-size: $--font-size-small !important;
+    }
+    @include when(collapsed) {
+      max-height: $size-medium;
+    }
+  }
+
+  @include m(small) {
+    line-height: $size-small;
+    @include e(expand) {
+      font-size: $--font-size-small !important;
+      line-height: $size-small;
+    }
+    @include e(tag) {
+      margin-right: 16px;
+      font-size: $--font-size-small !important;
+    }
+    @include when(collapsed) {
+      max-height: $size-small;
+    }
+  }
+
+  @include m(mini) {
+    line-height: $size-mini;
+    @include e(expand) {
+      font-size: $--font-size-extra-small !important;
+      line-height: $size-mini;
+    }
+    @include e(tag) {
+      margin-right: 12px;
+      font-size: $--font-size-extra-small !important;
+    }
+    @include when(collapsed) {
+      max-height: $size-mini;
+    }
+  }
+
+  @include m(text) {
+    color: $--color-normal-text;
+    font-size: $--font-size;
+    @include e(tag) {
+      padding: 3px 5px;
+      line-height: 1.5;
+      @include when(checked) {
+        background: $--color-primary;
+        border-radius: $--border-radius-base;
+        color: $--color-primary-light-10;
+      }
+    }
+  }
+
+}

@@ -1,0 +1,57 @@
+@import "common/var";
+@import "my-typography";
+
+@include b(title) {
+  font-weight: 500;
+  margin: 0 0 1.2rem 0;
+  color: $--color-title;
+
+  @include m(h1) {
+    font-size: $--font-size-extra-large;
+    @include when(editing) {
+      div.el-textarea {
+        transform: translateY(13px);
+      }
+    }
+
+  }
+
+  @include m(h2) {
+    font-size: $--font-size-large;
+
+    @include when(editing) {
+      div.el-textarea {
+        transform: translateY(12px);
+      }
+    }
+  }
+
+  @include m(h3) {
+    font-size: $--font-size-medium;
+
+    @include when(editing) {
+      div.el-textarea {
+        transform: translateY(9px);
+      }
+    }
+  }
+
+  @include m(h4) {
+    font-size: $--font-size-normal;
+    @include when(editing) {
+      div.el-textarea {
+        transform: translateY(7px);
+      }
+    }
+  }
+
+  @include when(editing) {
+    div.el-textarea {
+      margin-left: -16px;
+      margin-top: -27px;
+    }
+  }
+
+
+}
+

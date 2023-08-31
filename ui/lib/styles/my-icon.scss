@@ -1,0 +1,50 @@
+@import "common/var";
+
+[class*=" el-icon-"], [class^=el-icon-] {
+  &.my-icon {
+    font-family: element-icons !important;
+  }
+}
+
+@include b(icon) {
+  display: inline-block;
+  line-height: 1em;
+  > svg {
+    display: block;
+  }
+
+
+  @include m(primary) {
+    color: $--color-primary;
+  }
+
+  @include m(success) {
+    color: $--color-success;
+  }
+
+  @include m(warning) {
+    color: $--color-warning;
+  }
+
+  @include m(danger) {
+    color: $--color-danger;
+  }
+
+  @include m(info) {
+    color: $--color-info;
+  }
+
+  @include when(pointer) {
+    cursor: pointer;
+  }
+
+  @include when(svg) {
+    font-family: initial !important;
+    vertical-align: top;
+    &:before {
+      content: '';
+      display: none;
+    }
+  }
+
+}

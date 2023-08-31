@@ -1,0 +1,22 @@
+@import "common/var";
+
+.el-form-item {
+  @include b(rate) {
+    margin-top: 10px;
+  }
+  @include m(medium) {
+    @include b(rate) {
+      margin-top: 8px;
+    }
+  }
+  @include m(small) {
+    @include b(rate) {
+      margin-top: 6px;
+    }
+  }
+  @include m(mini) {
+    @include b(rate) {
+      margin-top: 4px;
+    }
+  }
+}

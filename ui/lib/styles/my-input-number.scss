@@ -1,0 +1,5 @@
+@import "common/var";
+
+@include b(input-number) {
+  width: 100%;
+}

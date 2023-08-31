@@ -1,0 +1,74 @@
+@import "common/var";
+
+@mixin round($size) {
+  @include when(round) {
+    .el-input-group__prepend {
+      border-top-left-radius: $size;
+      border-bottom-left-radius: $size;
+    }
+
+    .el-input__inner {
+      border-top-left-radius: $size;
+      border-bottom-left-radius: $size;
+    }
+    .el-input-group__prepend + .el-input__inner {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+
+    .el-input-group__append {
+      border-top-right-radius: $size;
+      border-bottom-right-radius: $size;
+      border: none;
+    }
+  }
+}
+
+@include b(search-box) {
+
+  width: 100%;
+
+  .el-input-group__append {
+    background: $--color-primary;
+    color: $--color-primary-light-10;
+  }
+
+  @include round(20px);
+
+  @include e(button) {
+    font-size: 18px !important;
+    padding: 12px !important;
+  }
+
+  @include when(medium) {
+    @include e(button) {
+      font-size: 16px !important;
+    }
+    .el-input-group__append {
+      padding: 0 18px;
+    }
+    @include round(18px);
+  }
+
+  @include when(small) {
+    @include e(button) {
+      font-size: 14px !important;
+    }
+    .el-input-group__append {
+      padding: 0 16px;
+    }
+    @include round(16px);
+  }
+
+  @include when(mini) {
+    @include e(button) {
+      font-size: 14px !important;
+    }
+    .el-input-group__append {
+      padding: 0 14px;
+    }
+    @include round(14px);
+  }
+
+
+}

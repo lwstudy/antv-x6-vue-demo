@@ -1,0 +1,5 @@
+@import "common/var";
+
+@include b(select) {
+  width: 100%;
+}

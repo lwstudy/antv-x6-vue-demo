@@ -1,0 +1,141 @@
+@import "colors";
+
+$--font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol' !default;
+
+// 字体基数，以分辨率1920为标准
+$--base: 14px !default;
+
+// 页面背景色
+$--background: $white !default;
+
+// 页面前景色
+$--color: $neutral-black-2 !default;
+
+// 主色和色阶
+$--color-primary: $blue-primary !default;
+$--color-primary-light-1: $blue-1 !default;
+$--color-primary-light-2: $blue-2 !default;
+$--color-primary-light-3: $blue-3 !default;
+$--color-primary-light-4: $blue-4 !default;
+$--color-primary-light-5: $blue-5 !default;
+$--color-primary-light-6: $blue-6 !default;
+$--color-primary-light-7: $blue-7 !default;
+$--color-primary-light-8: $blue-8 !default;
+$--color-primary-light-9: $blue-9 !default;
+$--color-primary-light-10: $blue-10 !default;
+
+// 辅助色
+$--color-success: $green-primary !default;
+$--color-success-light: $green-9 !default;
+$--color-success-lighter: $green-10 !default;
+
+$--color-warning: $gold-primary !default;
+$--color-warning-light: $gold-9 !default;
+$--color-warning-lighter: $gold-10 !default;
+
+$--color-danger: $red-primary !default;
+$--color-danger-light: $red-9 !default;
+$--color-danger-lighter: $red-10 !default;
+
+$--color-info: $neutral-black-5 !default;
+$--color-info-light: $neutral-black-7 !default;
+$--color-info-lighter: $neutral-black-8 !default;
+
+// 中性色(浅色背景)
+$--color-title: $neutral-black-1 !default;
+$--color-primary-text: $neutral-black-2 !default;
+$--color-normal-text: $neutral-black-3 !default;
+$--color-secondary-text: $neutral-black-4 !default;
+$--color-placeholder: $neutral-black-5 !default;
+$--color-border: $neutral-black-6 !default;
+$--color-divider: $neutral-black-7 !default;
+$--color-background: $neutral-black-7 !default;
+$--color-table-header: $neutral-black-8 !default;
+$--color-table-stripe: $neutral-black-9 !default;
+$--color-table-hover: $blue-10 !default;
+$--color-split: $neutral-black-9 !default;
+$--color-mask: $neutral-white-2 !default;
+
+// 字体大小
+$--font-size: 1rem !default;
+$--font-size-extra-large: (24px/$--base) * $--font-size !default;
+$--font-size-large: (20px/$--base) * $--font-size !default;
+$--font-size-medium: (18px/$--base) * $--font-size !default;
+$--font-size-normal: (16px/$--base) * $--font-size !default;
+$--font-size-small: (14px/$--base) * $--font-size !default;
+$--font-size-extra-small: 12px !default;
+
+// 行高
+$--line-height-normal: 1.5em !default;
+$--line-height-large: 2em !default;
+$--line-height-small: 1.3em !default;
+$--line-height-none: 1em !default;
+
+
+// 边距
+$--padding-normal: 1rem !default;
+$--padding-large: $--padding-normal * 1.5 !default;
+$--padding-small: $--padding-normal * 0.5 !default;
+$--padding-none: 0 !default;
+
+// 边框
+$--border-base: 1px solid $--color-border !default;
+$--border-dashed: 2px dashed $--color-border !default;
+
+// 圆角
+$--border-radius-large: 8px !default;
+$--border-radius-base: 4px !default;
+$--border-radius-small: 2px !default;
+$--border-radius-circle: 100% !default;
+$--border-radius-none: 0 !default;
+
+// 阴影
+$--box-shadow-base: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04) !default;
+$--box-shadow-dark: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .12) !default;
+$--box-shadow-light: 0 2px 12px 0 rgba(0, 0, 0, 0.1) !default;
+
+// 链接
+$--link-color: $--color-primary !default;
+$--link-hover-color: $--color-primary-light-6 !default;
+
+// 禁用
+$--disabled-fill: $neutral-black-8 !default;
+$--disabled-color: $neutral-black-5 !default;
+$--disabled-border-color: $neutral-black-7 !default;
+
+// z-index
+$--index-normal: 1 !default;
+$--index-top: 1000 !default;
+$--index-popper: 2000 !default;
+
+// Icon
+$--icon-color: $--color-normal-text !default;
+
+// 导航菜单
+$--nav-light-background: $--background !default;
+$--nav-light-item-background-hover: $--color-primary-light-10 !default;
+$--nav-light-item-background-active: $--color-primary-light-10 !default;
+$--nav-light-item-color: $neutral-black-3 !default;
+$--nav-light-item-color-hover: $neutral-black-2 !default;
+$--nav-light-item-color-active: $--color-primary !default;
+$--nav-light-submenu-color-active: $--color-primary-text !default;
+$--nav-light-collapsed-color-active: $--color-primary !default;
+$--nav-light-item-border-color-active: $--color-primary !default;
+$--nav-light-item-horizontal-color-active: $--color-primary !default;
+
+// 修复ElementUI
+$--pagination-background-color: transparent !default;
+$--pagination-button-disabled-background-color: transparent !default;
+$--tooltip-light-color: $--color !default;
+$--button-default-hover-color: $--color-primary !default;
+$--button-default-hover-border-color: $--color-primary-light-8 !default;
+$--button-default-hover-background-color: $--color-primary-light-10 !default;
+$--dialog-dark-border-color: $--color-primary-light-1 !default;
+$--table-border-color: $blue-10 !default;
+$--table-font-color: $--color-normal-text !default;
+$--table-header-font-color: $--color-normal-text !default;
+
+$--input-border-color: $--color-primary-light-9 !default;
+$--input-focus-border: $--color-primary !default;
+$--input-hover-border: $--color-primary-light-8 !default; 
+$--disabled-fill-base: $--color-background !default;

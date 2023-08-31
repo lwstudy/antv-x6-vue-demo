@@ -1,0 +1,81 @@
+@import "../common/var";
+
+.my-base-picker__popover {
+  padding: 0;
+}
+
+@include b(picker-panel) {
+  > .my-layout__west {
+    border-right: 1px solid $--color-table-header;
+  }
+  > .my-layout__wrapper > .my-layout__north, > .my-layout__north {
+    border-bottom: 1px solid $--color-table-header;
+    padding: 12px;
+  }
+  > .my-layout__wrapper > .my-layout__default, > .my-layout__default {
+    padding: 0;
+  }
+
+  @include e(groups) {
+    list-style: none;
+    padding: 0;
+    margin: 12px 0;
+    > li {
+      line-height: 32px;
+      padding: 0 12px;
+      cursor: pointer;
+
+      > .el-badge {
+        float: right;
+
+        > .el-badge__content {
+          position: relative;
+          top: 5px;
+        }
+      }
+
+      @include when(active) {
+        color: $--color-primary;
+        background-color: $--color-primary-light-10;
+      }
+
+      &:hover {
+        background-color: $--color-table-stripe;
+        color: $--color-primary;
+      }
+    }
+  }
+
+  @include e(list) {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  @include e(item) {
+    cursor: pointer;
+  }
+}
+
+
+@include b(picker-panel-icon-item) {
+  text-align: center;
+  padding: 0 10px;
+  .my-icon {
+    font-size: 32px;
+    margin-top: 10px;
+  }
+  .icon-item__text {
+    font-size: 12px;
+    padding: 5px 0;
+  }
+  &:hover {
+    background-color: $--color-primary-light-10;
+    color: $--color-primary;
+    border-radius: $--border-radius-base;
+  }
+  @include when(checked) {
+    background-color: $--color-primary;
+    color: $--color-primary-light-10;
+    border-radius: $--border-radius-base;
+  }
+}

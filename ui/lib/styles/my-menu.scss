@@ -1,0 +1,416 @@
+@import "common/var";
+
+$light-background: $--nav-light-background !default;
+$light-item-background-hover: $--nav-light-item-background-hover !default;
+$light-item-background-active: $--nav-light-item-background-active !default;
+$light-item-color: $--nav-light-item-color !default;
+$light-item-color-hover: $--nav-light-item-color-hover !default;
+$light-item-color-active: $--nav-light-item-color-active !default;
+$light-submenu-color-active: $--nav-light-submenu-color-active !default;
+$light-collapsed-color-active: $--nav-light-collapsed-color-active !default;
+$light-item-border-color-active: $--nav-light-item-border-color-active !default;
+$light-item-horizontal-color-active: $--nav-light-item-horizontal-color-active !default;
+$light-submenu-background-open: $--color-table-stripe !default;
+
+$primary-background: $--color-primary !default;
+$primary-item-background-hover: mix($--color-primary, $--color-primary-light-6) !default;
+$primary-item-background-active: $--color-primary-light-6 !default;
+$primary-item-color: $--color-primary-light-9 !default;
+$primary-item-color-hover: $--color-primary-light-10 !default;
+$primary-item-color-active: $white !default;
+$primary-submenu-color-active: $--color-primary-light-10 !default;
+$primary-collapsed-color-active: $white !default;
+$primary-item-border-color-active: $--color-primary-light-10 !default;
+$primary-item-horizontal-color-active: $white !default;
+$primary-submenu-background-open: $neutral-white-8 !default;
+
+$dark-background: $--color-primary-light-1 !default;
+$dark-item-background-hover: $--color-primary-light-2 !default;
+$dark-item-background-active: $--color-primary !default;
+$dark-item-color: $--color-primary-light-8 !default;
+$dark-item-color-hover: $--color-primary-light-9 !default;
+$dark-item-color-active: $--color-primary-light-10 !default;
+$dark-submenu-color-active: $--color-primary-light-10 !default;
+$dark-collapsed-color-active: $--color-primary-light-10 !default;
+$dark-item-border-color-active: $--color-primary-light-10 !default;
+$dark-item-horizontal-color-active: $--color-primary-light-10 !default;
+$dark-submenu-background-open: $neutral-white-8 !default;
+
+$gradual-background: mix($--color-primary-light-3, $--color-primary) !default;
+$gradual-item-background-hover: $--color-primary-light-2 !default;
+$gradual-item-background-active: $--color-primary !default;
+$gradual-item-color: $--color-primary-light-8 !default;
+$gradual-item-color-hover: $--color-primary-light-9 !default;
+$gradual-item-color-active: $--color-primary-light-10 !default;
+$gradual-submenu-color-active: $--color-primary-light-10 !default;
+$gradual-collapsed-color-active: $--color-primary-light-10 !default;
+$gradual-item-border-color-active: $--color-primary-light-10 !default;
+$gradual-item-horizontal-color-active: $--color-primary-light-10 !default;
+$gradual-submenu-background-open: $neutral-white-8 !default;
+
+$black-background: #001529 !default;
+$black-item-background-hover: $neutral-black-2 !default;
+$black-item-background-active: $--color-primary !default;
+$black-item-color: $neutral-white-3 !default;
+$black-item-color-hover: $neutral-white-2 !default;
+$black-item-color-active: $neutral-white-2 !default;
+$black-submenu-color-active: $neutral-white-1 !default;
+$black-collapsed-color-active: $--color-primary !default;
+$black-item-border-color-active: $--color-primary !default;
+$black-item-horizontal-color-active: $--color-primary !default;
+$black-submenu-background-open: $neutral-white-8 !default;
+
+@mixin common-item(
+  $background,
+  $item-background-hover,
+  $item-background-active,
+  $item-color,
+  $item-color-hover,
+  $item-color-active,
+  $submenu-color-active,
+  $collapsed-color-active,
+  $item-border-color-active,
+  $item-horizontal-color-active
+) {
+  .el-menu-item-group__title {
+    color: $item-color;
+    opacity: 0.6;
+  }
+  li.el-menu-item {
+    color: $item-color;
+
+    i {
+      color: $item-color;
+      transition: font-size 0.3s;
+    }
+
+    span {
+      vertical-align: baseline;
+    }
+
+    .el-badge {
+      position: relative;
+      margin: -4px 0 0 5px;
+    }
+
+    .my-icon {
+      font-size: 18px;
+      margin-left: 5px;
+      margin-right: 5px;
+      width: 24px;
+      text-align: center;
+      vertical-align: text-bottom;
+    }
+
+    .my-menu__collapsed-icon.el-badge {
+      line-height: 0;
+      margin: 0;
+    }
+
+    &:hover {
+      background-color: $item-background-hover !important;
+      color: $item-color-hover !important;
+
+      i {
+        color: $item-color-hover !important;
+      }
+    }
+
+    &.is-active {
+      background-color: $item-background-active !important;
+      color: $item-color-active !important;
+
+      i {
+        color: $item-color-active !important;
+      }
+    }
+  }
+
+  .el-submenu {
+    > .el-submenu__title {
+      color: $item-color;
+
+      i {
+        color: $item-color;
+        transition: font-size 0.3s;
+      }
+
+      .my-icon {
+        font-size: 18px;
+        margin-left: 5px;
+        margin-right: 5px;
+        width: 24px;
+        text-align: center;
+        vertical-align: sub;
+      }
+
+      .el-badge {
+        position: relative;
+        margin: -4px 0 0 5px;
+      }
+
+      .my-menu__collapsed-icon.el-badge {
+        line-height: 0;
+        margin: 0;
+      }
+
+      &:hover {
+        background-color: $item-background-hover;
+        color: $item-color-hover;
+
+        i {
+          color: $item-color-hover;
+        }
+      }
+    }
+
+    &.is-active {
+      > .el-submenu__title {
+        color: $submenu-color-active;
+
+        i {
+          color: $submenu-color-active;
+        }
+      }
+    }
+  }
+}
+
+@mixin theme-builder(
+  $background,
+  $item-background-hover,
+  $item-background-active,
+  $item-color,
+  $item-color-hover,
+  $item-color-active,
+  $submenu-color-active,
+  $collapsed-color-active,
+  $item-border-color-active,
+  $item-horizontal-color-active,
+  $submenu-background-open
+) {
+  &.my-menu {
+    background-color: $background;
+
+    @include common-item(
+                    $background,
+                    $item-background-hover,
+                    $item-background-active,
+                    $item-color,
+                    $item-color-hover,
+                    $item-color-active,
+                    $submenu-color-active,
+                    $collapsed-color-active,
+                    $item-border-color-active,
+                    $item-horizontal-color-active
+    );
+
+    &.el-menu--collapse {
+      .el-menu-item .my-icon, .el-submenu > .el-submenu__title .my-icon {
+        font-size: 24px;
+        margin-left: 0;
+      }
+
+      .el-submenu.is-active > .el-submenu__title i {
+        color: $collapsed-color-active
+      }
+    }
+
+    &:not(.el-menu--horizontal) {
+      .el-menu-item, .el-submenu > .el-submenu__title {
+        height: 50px;
+        line-height: 50px;
+      }
+
+      .el-submenu .el-menu-item {
+        height: 45px;
+        line-height: 44px;
+      }
+
+      .el-submenu.is-opened > .el-menu {
+        background-color: $submenu-background-open;
+      }
+    }
+
+    &.el-menu--horizontal {
+      > .el-menu-item {
+        &.is-active {
+          background-color: transparent !important;
+          color: $item-horizontal-color-active;
+          border-bottom: 4px solid $item-border-color-active;
+
+          i {
+            color: $item-horizontal-color-active;
+          }
+        }
+      }
+
+      > .el-submenu.is-active {
+        > .el-submenu__title {
+          color: $item-horizontal-color-active;
+          border-bottom: 4px solid $item-border-color-active;
+
+          i {
+            color: $item-horizontal-color-active;
+          }
+        }
+      }
+    }
+  }
+
+  &.my-menu--popup {
+    .el-menu--popup {
+      @include common-item(
+                      $background,
+                      $item-background-hover,
+                      $item-background-active,
+                      $item-color,
+                      $item-color-hover,
+                      $item-color-active,
+                      $submenu-color-active,
+                      $collapsed-color-active,
+                      $item-border-color-active,
+                      $item-horizontal-color-active
+      );
+    }
+
+    .el-menu {
+      background-color: transparent;
+    }
+
+    .el-menu--popup {
+      background-color: $background;
+
+      .el-menu-item, .el-submenu > .el-submenu__title {
+        height: 45px;
+        line-height: 44px;
+        background-color: transparent;
+        color: $item-color;
+
+        .my-icon {
+          margin-right: 5px;
+        }
+      }
+    }
+
+    .el-submenu.is-active {
+      .el-submenu__title {
+        color: $collapsed-color-active;
+
+        i {
+          color: $collapsed-color-active;
+        }
+      }
+    }
+
+
+    .el-menu-item-group__title {
+      color: $item-color;
+      opacity: 0.6;
+    }
+  }
+}
+
+@include b(menu) {
+  &.el-menu {
+    border-right: none !important;
+    border-bottom: none !important;
+  }
+  &:not(.el-menu--collapse) {
+    width: 100%;
+  }
+
+  .el-menu {
+    background-color: transparent;
+  }
+}
+
+
+@include when(light) {
+  @include theme-builder(
+                  $light-background,
+                  $light-item-background-hover,
+                  $light-item-background-active,
+                  $light-item-color,
+                  $light-item-color-hover,
+                  $light-item-color-active,
+                  $light-submenu-color-active,
+                  $light-collapsed-color-active,
+                  $light-item-border-color-active,
+                  $light-item-horizontal-color-active,
+                  $light-submenu-background-open
+  )
+}
+
+@include when(black) {
+  @include theme-builder(
+                  $black-background,
+                  $black-item-background-hover,
+                  $black-item-background-active,
+                  $black-item-color,
+                  $black-item-color-hover,
+                  $black-item-color-active,
+                  $black-submenu-color-active,
+                  $black-collapsed-color-active,
+                  $black-item-border-color-active,
+                  $black-item-horizontal-color-active,
+                  $black-submenu-background-open
+  )
+}
+
+
+@include when(primary) {
+  @include theme-builder(
+                  $primary-background,
+                  $primary-item-background-hover,
+                  $primary-item-background-active,
+                  $primary-item-color,
+                  $primary-item-color-hover,
+                  $primary-item-color-active,
+                  $primary-submenu-color-active,
+                  $primary-collapsed-color-active,
+                  $primary-item-border-color-active,
+                  $primary-item-horizontal-color-active,
+                  $primary-submenu-background-open
+  )
+}
+
+
+@include when(dark) {
+  @include theme-builder(
+                  $dark-background,
+                  $dark-item-background-hover,
+                  $dark-item-background-active,
+                  $dark-item-color,
+                  $dark-item-color-hover,
+                  $dark-item-color-active,
+                  $dark-submenu-color-active,
+                  $dark-collapsed-color-active,
+                  $dark-item-border-color-active,
+                  $dark-item-horizontal-color-active,
+                  $dark-submenu-background-open
+  )
+}
+
+@include when(gradual) {
+  @include theme-builder(
+                  $gradual-background,
+                  $gradual-item-background-hover,
+                  $gradual-item-background-active,
+                  $gradual-item-color,
+                  $gradual-item-color-hover,
+                  $gradual-item-color-active,
+                  $gradual-submenu-color-active,
+                  $gradual-collapsed-color-active,
+                  $gradual-item-border-color-active,
+                  $gradual-item-horizontal-color-active,
+                  $gradual-submenu-background-open
+  )
+}
+
+
+.el-tooltip__popper .el-badge {
+  margin-left: 5px;
+}
+
+

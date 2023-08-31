@@ -1,0 +1,157 @@
+@import "../common/var";
+
+// 字体基数，以分辨率1920为标准
+$--base: 14px;
+
+// 页面背景色
+$--background: $blue-1;
+
+// 页面前景色
+$--color: $white;
+
+// 主色和色阶
+$--color-primary: $blue-5;
+$--color-primary-light-1: $blue-1;
+$--color-primary-light-2: $blue-2;
+$--color-primary-light-3: $blue-3;
+$--color-primary-light-4: $blue-4;
+$--color-primary-light-5: $blue-5;
+$--color-primary-light-6: $blue-6;
+$--color-primary-light-7: $blue-7;
+$--color-primary-light-8: $blue-8;
+$--color-primary-light-9: $blue-9;
+$--color-primary-light-10: $blue-10;
+
+// 辅助色
+$--color-success: $green-primary;
+$--color-success-light: $green-9;
+$--color-success-lighter: $green-10;
+
+$--color-warning: $gold-primary;
+$--color-warning-light: $gold-9;
+$--color-warning-lighter: $gold-10;
+
+$--color-danger: $red-primary;
+$--color-danger-light: $red-9;
+$--color-danger-lighter: $red-10;
+
+$--color-info: $neutral-white-4;
+$--color-info-light: $neutral-white-7;
+$--color-info-lighter: $neutral-white-9;
+
+// 中性色(浅色背景)
+$--color-title: $neutral-white-1;
+$--color-primary-text: $neutral-white-1; // $neutral-white-2;
+$--color-normal-text:  $neutral-white-2; // $neutral-white-3;
+$--color-secondary-text: $neutral-white-4;
+$--color-placeholder: $neutral-white-5;
+$--color-border: $neutral-white-6;
+$--color-divider: $neutral-white-6;
+$--color-background: $neutral-white-7;
+$--color-table-header: $neutral-white-7;
+$--color-table-stripe: $neutral-white-8;
+$--color-table-hover: $blue-3;
+$--color-split: $neutral-black-6;
+$--color-mask: $neutral-black-4;
+
+
+// 边框
+$--border-base: 1px solid $--color-border;
+$--border-dashed: 2px dashed $--color-border;
+
+
+// 阴影
+$--box-shadow-base: 0 2px 4px rgba(255, 255, 255, .2), 0 0 6px rgba(255, 255, 255, .04);
+$--box-shadow-dark: 0 2px 4px rgba(255, 255, 255, .2), 0 0 6px rgba(255, 255, 255, .2);
+$--box-shadow-light: 0 2px 12px 0 rgba(255, 255, 255, 0.12);
+
+
+// 链接
+$--link-color: $--color-primary;
+$--link-hover-color: $--color-primary-light-3;
+
+// 禁用
+$--disabled-fill: $neutral-black-7;
+$--disabled-color: $neutral-white-5;
+$--disabled-border-color: $neutral-black-6;
+
+
+// fix element --------------------------------
+
+$--color-white: $--background;
+$--color-text-primary: $--color-primary-text;
+$--color-text-regular: $--color-secondary-text;
+$--color-text-placeholder: $--color-placeholder;
+
+$--background-color-base: $--color-background;
+
+$--disabled-fill-base: $--disabled-fill;
+$--disabled-color-base: $--disabled-color;
+$--disabled-border-base: $--disabled-border-color;
+$--checkbox-disabled-input-fill: $--disabled-fill;
+
+$--border-color-base: $--color-border;
+$--border-color-light: $--color-border;
+$--border-color-lighter: $--color-border;
+$--border-color-extra-light: $--color-border;
+
+$--tooltip-fill: $--color-primary-light-3;
+$--tooltip-border-color: $--tooltip-fill;
+$--tooltip-color: $--color-primary-text;
+
+$--datepicker-border-color: $--color-border;
+$--datepicker-inner-border-color: $--color-border;
+$--table-header-background-color: $--color-table-header;
+
+$--cascader-tag-background: $--color-primary-light-3;
+$--calendar-selected-background-color: $--color-background;
+$--avatar-background-color: $--color-background;
+
+
+$--button-primary-font-color: $--color-normal-text;
+$--button-success-font-color: $--color-normal-text;
+$--button-warning-font-color: $--color-normal-text;
+$--button-info-font-color: $--color-normal-text;
+$--button-danger-font-color: $--color-normal-text;
+
+$--pagination-background-color: transparent;
+$--pagination-button-disabled-background-color: transparent;
+
+$--message-background-color: $--color-info;
+$--message-info-font-color: $--color-title;
+
+$--menu-background-color: $--background;
+$--menu-item-hover-fill: $--color-primary-light-4;
+
+$--tooltip-color: $--color-primary-light-10;
+$--tooltip-fill: $--color-primary;
+$--tooltip-light-color: $--color-primary;
+
+$--button-default-hover-color: $--color-primary-light-10;
+$--button-default-hover-border-color: $--color-primary-light-4;
+$--button-default-hover-background-color: $--color-primary-light-2;
+
+$--radio-button-checked-font-color: $--color-primary-light-10;
+$--checkbox-button-checked-font-color: $--color-primary-light-10;
+
+$--dialog-dark-border-color: $--color-background;
+
+// my-menu 配置
+$--nav-light-background: $--color-primary-light-2;
+$--nav-light-item-background-hover: $--color-primary-light-3;
+$--nav-light-item-background-active: $--color-primary;
+$--nav-light-item-color: $--color-secondary-text;
+$--nav-light-item-color-hover: $--color-normal-text;
+$--nav-light-item-color-active: $--color-normal-text;
+$--nav-light-submenu-color-active: $--color-primary-text;
+$--nav-light-collapsed-color-active: $--color-primary;
+$--nav-light-item-border-color-active: $--color-primary;
+$--nav-light-item-horizontal-color-active: $--color-primary;
+
+$--input-border-color: $--color-primary;
+$--input-focus-border: $--color-primary-light-8;
+$--input-hover-border: $--color-primary-light-6; 
+
+$--table-border-color: $blue-2;
+$--table-font-color: $--color-normal-text;
+$--table-header-font-color: $--color-normal-text;

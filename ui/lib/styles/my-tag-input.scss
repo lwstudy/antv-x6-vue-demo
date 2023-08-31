@@ -1,0 +1,9 @@
+@import "common/var";
+
+@include b(tag-input) {
+  width: 100%;
+
+  .el-select__input {
+    margin-right: 20px;
+  }
+}

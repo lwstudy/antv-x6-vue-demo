@@ -1,0 +1,22 @@
+@import "common/var";
+
+@include b(marquee) {
+  overflow: hidden;
+
+  @include e(scroll) {
+    width: 100%;
+    height: 100%;
+  }
+
+  @include m(horizontal) {
+    @include e(content) {
+      display: inline-block;
+      white-space: nowrap;
+    }
+    @include e(copy-content) {
+      display: inline-block;
+      white-space: nowrap;
+    }
+  }
+
+}

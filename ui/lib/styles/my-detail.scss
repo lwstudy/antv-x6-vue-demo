@@ -1,0 +1,108 @@
+@import "common/var";
+
+$default-padding: 16px 24px;
+$middle-padding: 12px 24px;
+$small-padding: 8px 16px;
+
+
+@include b(detail) {
+
+  @include e(title) {
+    margin-bottom: 1rem;
+    color: $--color-title;
+    font-weight: bold;
+    font-size: $--font-size-normal;
+  }
+
+  @include e(view) {
+    width: 100%;
+    overflow: hidden;
+    border-radius: $--border-radius-base;
+    table {
+      width: 100%;
+      table-layout: fixed;
+    }
+  }
+
+  @include e(row) {
+    > th,
+    > td {
+      padding-bottom: 1rem;
+    }
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  @include when(border) {
+
+    @include e(view) {
+      border: 1px solid $--color-background;
+      > table {
+        table-layout: auto;
+        border-collapse: collapse;
+        border-spacing: 0;
+      }
+    }
+
+    .my-detail-item__label,
+    .my-detail-item__content {
+      padding: $default-padding;
+      border-right: 1px solid $--color-background;
+
+      &:last-child {
+        border-right: none;
+      }
+    }
+
+    .my-detail-item__label {
+      background-color: $--color-table-header;
+
+      &::after {
+        display: none;
+      }
+    }
+    .my-detail__row {
+      border-bottom: 1px solid $--color-background;
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+
+
+  }
+
+  @include when(middle) {
+    @include e(row) {
+      > th,
+      > td {
+        padding-bottom: 12px;
+      }
+    }
+    @include e(view) {
+      .my-detail-item__label,
+      .my-detail-item__content {
+        padding: $middle-padding;
+      }
+    }
+  }
+
+  @include when(small) {
+    @include e(row) {
+      > th,
+      > td {
+        padding-bottom: 8px;
+      }
+    }
+    @include e(view) {
+      .my-detail-item__label,
+      .my-detail-item__content {
+        padding: $small-padding;
+      }
+    }
+  }
+}
+
+
+

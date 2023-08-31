@@ -1,0 +1,69 @@
+@import "common/var";
+
+@include b(detail-item) {
+
+  @include e(wrap) {
+    padding-bottom: 0;
+    > span {
+      display: inline-block;
+    }
+  }
+
+  @include e(label) {
+    color: $--color-normal-text;
+    font-weight: normal;
+    font-size: $--font-size;
+    line-height: $--line-height-normal;
+    white-space: nowrap;
+    text-align: inherit;
+
+    &::after {
+      position: relative;
+      top: -0.5px;
+      margin: 0 8px 0 2px;
+      content: ' ';
+    }
+
+    @include when(left) {
+      text-align: left;
+    }
+    @include when(center) {
+      text-align: center;
+    }
+    @include when(right) {
+      text-align: right;
+    }
+  }
+
+  @include e(content) {
+    display: table-cell;
+    color: $--color-primary-text;
+    font-size: $--font-size;
+    line-height: $--line-height-normal;
+
+    @include when(left) {
+      text-align: left;
+    }
+    @include when(center) {
+      text-align: center;
+    }
+    @include when(right) {
+      text-align: right;
+    }
+  }
+
+  @include m(colon) {
+    &::after {
+      content: ':';
+    }
+  }
+
+  @include m(no-label) {
+    &::after {
+      margin: 0;
+      content: '';
+    }
+  }
+
+
+}

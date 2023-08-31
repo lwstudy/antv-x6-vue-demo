@@ -1,0 +1,19 @@
+@import "common/var";
+
+@include b(revolve) {
+  position: relative;
+
+  @include e(progress) {
+    position: absolute !important;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    .el-progress-circle {
+      opacity: 0.3;
+    }
+    .el-progress__text {
+      color: $--color-primary;
+    }
+  }
+}

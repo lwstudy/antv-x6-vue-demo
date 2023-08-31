@@ -1,0 +1,23 @@
+@import "common/var";
+
+@include b(highlight) {
+  @include when(pointer) {
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline;
+      opacity: 0.8;
+    }
+  }
+  @include m(primary) {
+    color: $--color-primary;
+  }
+  @include m(success) {
+    color: $--color-success;
+  }
+  @include m(warning) {
+    color: $--color-warning;
+  }
+  @include m(danger) {
+    color: $--color-danger;
+  }
+}

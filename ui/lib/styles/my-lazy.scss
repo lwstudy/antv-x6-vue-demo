@@ -1,0 +1,43 @@
+@import "common/var";
+
+@include b(lazy) {
+  position: relative;
+  @include when(fit) {
+    width: 100%;
+    height: 100%;
+    @include e(component) {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.my-lazy {
+  &-enter {
+    opacity: 0;
+  }
+
+  &-enter-to {
+    opacity: 1;
+  }
+
+  &-enter-active {
+    transition: opacity 0.3s 0.2s;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
+  &-leave {
+    opacity: 1;
+  }
+
+  &-leave-to {
+    opacity: 0;
+  }
+
+  &-leave-active {
+    transition: opacity 0.3s;
+  }
+}
+

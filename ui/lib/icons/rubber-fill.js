@@ -1,0 +1,20 @@
+
+/**
+ * 该文件由 .my/core/build/svg.js 生成
+ */
+ 
+import Vue from 'vue'
+import globalConfig from '$ui/config'
+
+const Icon = ({props}) => {
+  const attrs = {...globalConfig.svg, ...props}
+  return (
+    <svg {...{attrs: attrs}}>
+       <path d="M980.9 424.1c12.5-12.5 12.5-32.8 0-45.3L636.7 34.6c-12.5-12.5-32.8-12.5-45.3 0L90.5 535.5c-50 50-50 131 0 181l272 270.3c24 23.8 56.4 37.2 90.2 37.2H864c17.7 0 32-14.3 32-32 0-8.8-3.6-16.8-9.4-22.6-5.8-5.8-13.8-9.4-22.6-9.4H599.5c-57 0-85.6-68.9-45.3-109.3l426.7-426.6zM434.8 879.7c-25 25-65.5 25-90.5 0L135.8 671.3c-25-25-25-65.5 0-90.5l127.9-127.9 299 299-127.9 127.8z"/>
+    </svg>
+  )
+}
+
+Vue.component('icon-rubber-fill', Icon)
+export default Icon
+

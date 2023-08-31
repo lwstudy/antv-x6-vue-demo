@@ -1,0 +1,341 @@
+@import "common/var";
+
+$height: 60px;
+$icon-font-size: 20px;
+
+$light-color: $--nav-light-item-color !default;
+$light-hover-color: $--nav-light-item-color-hover !default;
+$light-background: $--nav-light-background !default;
+$light-hover-background: $--nav-light-item-background-hover !default;
+
+$black-color: $neutral-white-3 !default;
+$black-hover-color: $neutral-white-2 !default;
+$black-background: #001529 !default;
+$black-hover-background: $neutral-black-2 !default;
+
+$dark-color: $--color-primary-light-10 !default;
+$dark-hover-color: $--color-primary-light-9 !default;
+$dark-background: $--color-primary-light-1 !default;
+$dark-hover-background: $--color-primary-light-2 !default;
+
+$primary-color: $--color-primary-light-10 !default;
+$primary-hover-color: $--color-primary-light-9 !default;
+$primary-background: $--color-primary !default;
+$primary-hover-background: mix($--color-primary, $--color-primary-light-6) !default;
+
+$gradual-color: $--color-primary-light-10 !default;
+$gradual-hover-color: $--color-primary-light-9 !default;
+$gradual-background: linear-gradient(to right, $--color-primary-light-3, $--color-primary) !default;
+$gradual-hover-background: $neutral-black-7 !default;
+
+
+@mixin theme-style($color, $hover-color, $background, $hover-background) {
+  background: $background;
+  color: $color;
+
+  @include e(brand) {
+    h1 {
+      color: $color;
+    }
+    > a {
+      position: relative;
+    }
+  }
+  @include e(actions) {
+    color: $color;
+  }
+  @include e(trigger) {
+    &:hover {
+      color: $hover-color;
+    }
+  }
+  .my-navbar-icon-action, .my-navbar-user-action {
+    &:hover {
+      color: $hover-color;
+      background: $hover-background;
+    }
+  }
+
+}
+
+@include b(navbar) {
+  position: relative;
+  height: $height;
+  background: $--background;
+  border-bottom: 1px solid $--color-divider;
+  box-sizing: content-box;
+
+  @include e(trigger) {
+    display: inline-block;
+    height: $height;
+    width: $height;
+    text-align: center;
+    line-height: $height;
+    cursor: pointer;
+    font-size: 0;
+    i {
+      font-size: $icon-font-size;
+    }
+  }
+
+  @include e(actions) {
+    display: inline-block;
+    color: $--color-normal-text;
+    vertical-align: top;
+  }
+
+  @include e(brand) {
+    display: inline-block;
+    height: $height;
+    line-height: $height;
+    vertical-align: top;
+    padding: 0 20px;
+    position: relative;
+    min-width: 256px;
+    > a {
+      display: table-cell;
+    }
+    img {
+      height: 32px;
+      vertical-align: middle;
+      margin-top: -3px;
+
+    }
+  }
+
+  @include e(version) {
+    position: absolute;
+    top: 10px;
+    right: 0;
+    transform: translateX(100%);
+    line-height: $--line-height-none;
+    font-size: $--font-size-extra-small;
+    padding: 2px 5px;
+    background: $--color-warning;
+    border-radius: $--border-radius-small;
+    z-index: $--index-normal;
+    color: $--color-warning-lighter;
+  }
+
+  @include e(logo) {
+    height: 32px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: -5px;
+    line-height: $height;
+  }
+
+  @include e(title) {
+    display: inline-block;
+    margin: 0 0 0 12px;
+    font-size: 20px;
+    font-weight: bold;
+    vertical-align: top;
+    padding: 0;
+    line-height: $height;
+    color: $--color-normal-text;
+  }
+
+  @include e(menu) {
+    height: $height;
+    padding: 0;
+    position: relative;
+    top: 0;
+  }
+
+  @include e(content) {
+    height: $height;
+    line-height: $height;
+    padding: 0 12px;
+  }
+
+  @include when(shadow) {
+    border-bottom: none;
+    box-shadow: 0 1px 4px rgba(0, 21, 41, .08);
+    @include when(dark) {
+      box-shadow: 0 2px 8px rgba(0, 0, 0, .25);
+    }
+    @include when(primary) {
+      box-shadow: 0 2px 8px rgba(0, 0, 0, .25);
+    }
+    @include when(gradual) {
+      box-shadow: 0 2px 8px rgba(0, 0, 0, .25);
+    }
+  }
+
+  @include when(light) {
+    @include theme-style($light-color, $light-hover-color, $light-background, $light-hover-background);
+  }
+
+  @include when(black) {
+    @include theme-style($black-color, $black-hover-color, $black-background, $black-hover-background);
+  }
+
+  @include when(dark) {
+    @include theme-style($dark-color, $dark-hover-color, $dark-background, $dark-hover-background);
+  }
+
+  @include when(primary) {
+    @include theme-style($primary-color, $primary-hover-color, $primary-background, $primary-hover-background);
+  }
+
+
+  @include when(gradual) {
+    @include theme-style($gradual-color, $gradual-hover-color, $gradual-background, $gradual-hover-background);
+    .my-menu {
+      background-color: transparent;
+    }
+  }
+
+  @include when(flex) {
+    display:flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    &::before, &::after{
+      display: none !important;
+    }
+    .my-navbar__brand{
+      height: auto !important;
+      line-height: normal !important;
+      .my-navbar__logo, .my-navbar__title{
+        line-height: normal !important;
+      }
+    }
+    .my-navbar__content{
+      height: auto !important;
+      line-height: normal !important;
+      flex: 1 !important;
+    }
+    .my-navbar__menu{
+      height: 100% !important;
+      .my-menu__wrapper{
+        height: 100% !important;
+        .my-menu{
+          height: 100% !important;
+          &>.el-menu-item{
+            display:flex;
+            height: 100% !important;
+            line-height: auto; 
+            align-items: center;
+          }
+          &>.el-submenu{ 
+            height: 100% !important;
+            line-height: auto;
+            .el-submenu__title{
+              display:flex;
+              height: 100% !important;
+              line-height: auto; 
+              align-items: center;
+             }
+          }
+        }
+      }
+    }
+    .my-navbar__right{ 
+      text-align: right;
+      height: 100% !important; 
+      
+      .my-navbar__actions{
+        height: 100% !important; 
+        .my-navbar-action, .my-navbar-icon-action{
+          line-height: normal !important;
+          height: 100% !important;
+          display: inline-flex !important;
+          flex-flow: row !important;
+          align-items: center !important;
+          .my-navbar-user-action__wrapper{
+            height: auto !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+@include b(navbar-action) {
+  display: inline-block;
+  padding: 0 12px;
+  cursor: pointer;
+  transition: all .3s;
+  height: 100%;
+  line-height: $height;
+  vertical-align: top;
+}
+
+
+@include b(navbar-icon-action) {
+  display: inline-block;
+  vertical-align: top;
+  height: $height;
+  line-height: $height;
+  padding: 0 12px;
+  cursor: pointer;
+  transition: all .3s;
+  font-size: 0;
+  &:hover {
+    color: $--color-primary-text;
+    background: $--color-table-stripe;
+  }
+  @include e(icon) {
+    font-size: $icon-font-size;
+    vertical-align: middle !important;
+  }
+  .el-tooltip {
+    vertical-align: middle;
+    line-height: $height;
+
+  }
+  .el-dropdown {
+    color: inherit;
+    vertical-align: top;
+    font-size: 0;
+  }
+  .el-badge {
+    line-height: initial;
+    vertical-align: middle;
+  }
+  .el-dropdown .my-navbar-icon-action__icon {
+    margin-top: 2px;
+  }
+
+}
+
+
+@include b(navbar-user-action) {
+  &:hover {
+    background: $--color-table-stripe;
+  }
+
+  .my-avatar {
+    margin-right: 8px;
+  }
+
+  .el-dropdown {
+    color: inherit;
+
+    .my-navbar-user-action__extra {
+      margin-top: 2px;
+    }
+  }
+  @include e(wrapper) {
+    display: inline-block;
+    height: $height;
+  }
+  @include e(text) {
+    display: inline-block;
+    line-height: $--line-height-none;
+    vertical-align: middle;
+  }
+  @include e(name) {
+    display: block;
+    font-size: $--font-size-small;
+  }
+  @include e(extra) {
+    display: block;
+    font-size: $--font-size-extra-small;
+    opacity: 0.7;
+
+  }
+}

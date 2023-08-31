@@ -1,0 +1,232 @@
+@import "common/var";
+
+$brand-height: 60px;
+
+$light-color: $--nav-light-item-color !default;
+$light-background: $--nav-light-background !default;
+
+$black-color: $neutral-white-3;
+$black-background: #001529;
+
+$dark-color: $--color-primary-light-8;
+$dark-background: $--color-primary-light-1;
+
+$primary-color: $--color-primary-light-9;
+$primary-background: $--color-primary;
+
+
+$gradual-color: $--color-primary-light-8;
+$gradual-background: linear-gradient(to bottom, $--color-primary-light-3, $--color-primary);
+
+
+@include b(sidebar) {
+  height: 100%;
+  transition: width 0.3s;
+  background: $--background;
+  color: $--color;
+  width: 100%;
+  border-right: 1px solid $--color-divider;
+  .my-menu {
+    margin: 1rem 0;
+  }
+
+  @include e(brand) {
+    height: $brand-height;
+    line-height: $brand-height;
+    padding: 0 16px;
+    overflow: hidden;
+    text-align: left;
+    > a {
+      position: relative;
+      display: inline-block;
+    }
+    img {
+      height: 32px;
+      vertical-align: middle;
+      margin-top: -3px;
+
+    }
+  }
+
+  @include e(title) {
+    display: inline-block;
+    margin: 0 0 0 12px;
+    font-size: 20px;
+    font-weight: bold;
+    vertical-align: top;
+    padding: 0;
+    line-height: $brand-height;
+    color: $--color-primary;
+  }
+
+  @include e(version) {
+    position: absolute;
+    top: 10px;
+    right: 0;
+    transform: translateX(100%);
+    line-height: $--line-height-none;
+    font-size: $--font-size-extra-small;
+    padding: 2px 5px;
+    background: $--color-warning;
+    border-radius: $--border-radius-small;
+    z-index: $--index-normal;
+    color: $--color-warning-lighter;
+  }
+
+  @include e(trigger) {
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    background: $--color-table-stripe;
+    cursor: pointer;
+    font-size: 0;
+    border-bottom: 1px solid $--color-table-header;
+    i {
+      font-size: $--font-size;
+    }
+    &:hover {
+      background: $--color-table-header;
+
+    }
+  }
+
+  @include e(body) {
+    height: 100%;
+    overflow: auto;
+    &.has-brand {
+      margin-top: 1px;
+      height: calc(100% - 61px);
+    }
+    &.has-trigger {
+      height: calc(100% - 40px);
+    }
+    &.has-brand.has-trigger {
+      height: calc(100% - 40px - 61px);
+    }
+  }
+
+  @include when(shadow) {
+    box-shadow: 2px 0 8px 0 rgba(29, 35, 41, .05);
+    border-right: none;
+    @include e(brand) {
+      box-shadow: 0 1px 0 0 $--color-table-header;
+    }
+
+    @include when(dark) {
+      box-shadow: 2px 0 6px rgba(0, 21, 41, .30);
+      @include e(brand) {
+        box-shadow: 0 1px 0 0 $neutral-white-6;
+      }
+    }
+
+    @include when(primary) {
+      box-shadow: 2px 0 6px rgba(0, 21, 41, .25);
+      @include e(brand) {
+        box-shadow: 0 1px 0 0 $neutral-white-6;
+      }
+    }
+
+    @include when(gradual) {
+      box-shadow: 2px 0 6px rgba(0, 21, 41, .30);
+      @include e(brand) {
+        box-shadow: 0 1px 0 0 $neutral-white-6;
+      }
+    }
+
+    @include when(black) {
+      box-shadow: 2px 0 6px rgba(0, 21, 41, .30);
+      @include e(brand) {
+        box-shadow: 0 1px 0 0 $neutral-white-6;
+      }
+    }
+  }
+
+  @include when(collapsed) {
+    width: 65px;
+  }
+
+  @include when(light) {
+    background: $light-background;
+    color: $light-color;
+
+    @include e(title) {
+      color: $light-color;
+    }
+    @include e(trigger) {
+      background: $--color-table-header;
+      &:hover {
+        background: $--color-table-stripe;
+
+      }
+    }
+  }
+
+  @include when(dark) {
+    background: $dark-background;
+    color: $dark-color;
+
+    @include e(title) {
+      color: $neutral-white-2;
+    }
+    @include e(trigger) {
+      background: $neutral-white-8;
+      &:hover {
+        background: $neutral-white-9;
+
+      }
+    }
+  }
+
+  @include when(black) {
+    background: $black-background;
+    color: $black-color;
+
+    @include e(title) {
+      color: $neutral-white-2;
+    }
+    @include e(trigger) {
+      background: $neutral-white-9;
+      &:hover {
+        background: $neutral-white-10;
+
+      }
+    }
+  }
+
+  @include when(primary) {
+    background: $primary-background;
+    color: $primary-color;
+
+    @include e(title) {
+      color: $white;
+    }
+    @include e(trigger) {
+      background: $neutral-white-8;
+      &:hover {
+        background: $neutral-white-9;
+
+      }
+    }
+  }
+
+  @include when(gradual) {
+    background: $gradual-background;
+    color: $gradual-color;
+
+    .my-menu {
+      background-color: transparent;
+    }
+    @include e(title) {
+      color: $white;
+    }
+    @include e(trigger) {
+      background: $neutral-white-8;
+      &:hover {
+        background: $neutral-white-9;
+
+      }
+    }
+  }
+
+
+}

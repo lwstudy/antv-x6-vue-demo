@@ -1,0 +1,64 @@
+@import "common/var";
+
+@include b(anchor) {
+
+  position: relative;
+  padding-left: 2px;
+
+  @include e(wrapper) {
+    max-height: 100vh;
+    margin-left: -4px;
+    padding-left: 4px;
+    overflow: auto;
+    background-color: $--background;
+  }
+
+  @include e(ink) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+
+    &:before {
+      position: relative;
+      display: block;
+      width: 2px;
+      height: 100%;
+      margin: 0 auto;
+      background-color: $--color-border;
+      content: ' ';
+    }
+  }
+
+  @include e(ball) {
+    position: absolute;
+    left: 50%;
+    display: none;
+    width: 8px;
+    height: 8px;
+    background-color: $--background;
+    border: 2px solid $--color-primary;
+    border-radius: 8px;
+    transform: translateX(-50%);
+    transition: top .3s ease-in-out;
+
+    @include when(visible) {
+      display: inline-block;
+    }
+  }
+
+}
+
+@include b(anchor-link) {
+  padding: 7px 0 7px 16px;
+  @include e(title) {
+    margin-bottom: 6px;
+    &:only-child {
+      margin-bottom: 0;
+    }
+
+    .my-icon {
+      margin-right: 5px;
+    }
+  }
+}

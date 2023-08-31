@@ -1,0 +1,63 @@
+@import "common/var";
+
+@include b(resize) {
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+
+  @include when(animate) {
+    transition: all 0.2s;
+  }
+
+  @include e(ctrl-h) {
+    font-size: 0;
+    position: absolute;
+    width: 10px;
+    height: 100%;
+    right: 0;
+    top: 0;
+    z-index: $--index-popper;
+    &.my-drag__handle {
+      cursor: e-resize;
+    }
+  }
+
+  @include e(ctrl-v) {
+    font-size: 0;
+    position: absolute;
+    height: 10px;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    z-index: $--index-popper;
+    &.my-drag__handle {
+      cursor: s-resize;
+    }
+
+  }
+
+  @include e(ctrl) {
+    font-size: 0;
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    right: 0;
+    bottom: 0;
+    z-index: $--index-popper;
+    &.my-drag__handle {
+      cursor: se-resize;
+    }
+  }
+
+  @include e(helper) {
+    position: absolute;
+    z-index: $--index-popper;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    box-sizing: border-box;
+    border: $--border-dashed;
+    background: $--color-table-stripe;
+  }
+}

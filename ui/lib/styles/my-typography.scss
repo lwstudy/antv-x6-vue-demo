@@ -1,0 +1,106 @@
+@import "common/var";
+
+
+@include b(typography) {
+  word-break: break-all;
+  code {
+    margin: 0 .2em;
+    padding: .2em .4em .1em;
+    font-size: 85%;
+    background: $--color-table-header;
+    border: 1px solid $--color-background;
+    border-radius: 3px;
+  }
+  strong {
+    font-weight: 600;
+  }
+
+  @include when(pointer) {
+    cursor: pointer;
+  }
+  @include when(primary) {
+    color: $--color-primary;
+  }
+  @include when(secondary) {
+    color: $--color-secondary-text;
+  }
+  @include when(warning) {
+    color: $--color-warning;
+  }
+  @include when(danger) {
+    color: $--color-danger;
+  }
+  @include when(disabled) {
+    color: $--disabled-color;
+    cursor: not-allowed;
+  }
+  @include when(small) {
+    font-size: $--font-size-extra-small;
+  }
+
+  @include when(editing) {
+    position: relative;
+    .el-textarea {
+      font-size: inherit;
+      margin-left: -16px;
+      margin-top: -12px;
+      transform: translateY(6px);
+    }
+    .el-textarea__inner {
+      color: inherit;
+    }
+  }
+
+  @include when(ellipsis-single-line) {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: block;
+  }
+  @include when(ellipsis) {
+    display: -webkit-box;
+    /*! autoprefixer: ignore next */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  @include e(copy) {
+    margin-left: 0.3em;
+  }
+
+  @include e(edit) {
+    margin-left: 0.3em;
+  }
+
+  @include e(copy-icon) {
+    cursor: pointer;
+    color: $--color-primary;
+    @include when(copied) {
+      color: $--color-success;
+    }
+  }
+
+  @include e(edit-icon) {
+    cursor: pointer;
+    color: $--color-primary;
+  }
+
+
+  @include e(enter) {
+    font-size: 10px;
+    color: $--color-secondary-text;
+    position: absolute;
+    right: 25px;
+    bottom: 3px;
+  }
+
+  @include e(expand) {
+    margin-left: 0.3em;
+    cursor: pointer;
+  }
+  @include e(editor) {
+    display: block;
+  }
+
+
+}

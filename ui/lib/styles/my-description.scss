@@ -1,0 +1,77 @@
+@import "common/var";
+
+@include b(description) {
+  margin-bottom: 8px;
+  clear: both;
+  @include utils-clearfix;
+  @include e(title) {
+    display: inline-block;
+    float: left;
+    color: $--color-secondary-text;
+    @include when(right) {
+      text-align: right;
+    }
+    @include when(center) {
+      text-align: center;
+    }
+    @include when(left) {
+      text-align: left;
+    }
+  }
+
+  @include e(content) {
+    display: block;
+    word-wrap:break-word;
+    color: $--color-primary-text;
+    text-align: left;
+    line-height: 1.6em;
+    min-height: 1.6em;  
+    @include when(border) {
+      background: no-repeat;
+      background-image:repeating-linear-gradient(180deg, transparent 0, transparent calc(1.6em - 1px), $--color-border calc(1.6em - 1px), $--color-border 1.6em);
+    }
+
+    > .my-description {
+      clear: initial;
+      margin-bottom: 8px;
+    }
+    .el-tag {
+      &:first-child {
+        margin-left: 0;
+      }
+
+      margin: 0 5px 5px 0;
+    }
+  }
+
+  @include when(top) {
+    & > {
+      @include e(title) {
+        float: initial;
+        display: block;
+      }
+
+      @include e(content) {
+
+        @include when(right) {
+          text-align: right;
+        }
+
+        @include when(center) {
+          text-align: center;
+        }
+
+        @include when(left) {
+          text-align: left;
+        }
+      }
+    }
+  }
+
+  @include when(inline) {
+    display: inline-block;
+    margin-right: 30px;
+  }
+
+  
+}

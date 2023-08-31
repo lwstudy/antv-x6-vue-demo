@@ -1,0 +1,64 @@
+@import "common/var";
+
+@include b(corner-mark) {
+  width: 100px;
+  height: 100px;
+  transform: translate(50%, -50%);
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  overflow: hidden;
+  @include e(wrapper) {
+    height: 24px;
+    line-height: 24px;
+    background: $--color-primary;
+    color: $--color-primary-light-8;
+    text-align: center;
+    box-shadow: $--box-shadow-dark;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-50%) rotate(45deg);
+  }
+
+  @include when(success) {
+    @include e(wrapper) {
+      background: $--color-success;
+      color: $--color-success-light;
+    }
+  }
+  @include when(warning) {
+    @include e(wrapper) {
+      background: $--color-warning;
+      color: $--color-warning-light;
+    }
+  }
+  @include when(danger) {
+    @include e(wrapper) {
+      background: $--color-danger;
+      color: $--color-danger-light;
+    }
+  }
+
+  @include when(large) {
+    width: 130px;
+    right: 30px;
+    top: 30px;
+    @include e(wrapper) {
+      height: 30px;
+      line-height: 30px;
+      font-size: 16px;
+    }
+  }
+
+  @include when(small) {
+    width: 80px;
+    right: 14px;
+    top: 14px;
+    @include e(wrapper) {
+      height: 20px;
+      line-height: 20px;
+      font-size: 12px;
+    }
+  }
+}

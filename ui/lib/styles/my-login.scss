@@ -1,0 +1,97 @@
+@import "common/var";
+
+@include b(login) {
+
+  @include e(logo) {
+    text-align: center;
+    margin-bottom: 20px;
+    img {
+      width: 40px;
+    }
+  }
+  @include e(title) {
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  @include e(action) {
+    margin-bottom: 20px;
+    .el-button {
+      width: 100%;
+      font-size: 20px;
+    }
+  }
+  @include e(input) {
+    .my-input {
+      font-size: 18px;
+
+      .el-input__inner {
+        height: 50px;
+        line-height: 50px;
+        outline: none;
+
+        &:focus {
+
+        }
+      }
+    }
+    @include when(error) {
+      .el-input__inner {
+        border: 1px dotted $--color-danger !important;
+      }
+
+    }
+
+  }
+  @include e(form) {
+    padding-top: 10px;
+  }
+  @include e(extra) {
+    padding-bottom: 20px;
+  }
+
+  @include when(transparent) {
+    background-color: transparent;
+    border: none;
+    @include e(title) {
+      color: $neutral-white-2;
+      text-shadow: $--box-shadow-light;
+    }
+    @include e(input) {
+      .my-input {
+        .el-input__prefix {
+          color: $neutral-white-5;
+        }
+
+        .el-input__inner {
+          background-color: $neutral-white-7;
+          border-color: $neutral-white-6;
+          color: $--color-primary-light-10;
+
+          &:hover {
+            border-color: $neutral-white-7;
+            background-color: $neutral-white-8;
+          }
+
+          &:focus {
+            border-color: $neutral-white-5;
+            background-color: $neutral-white-6;
+          }
+
+          &::-webkit-input-placeholder {
+            color: $neutral-white-5;
+          }
+        }
+      }
+
+    }
+  }
+
+  @include when(center) {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -60%);
+  }
+}

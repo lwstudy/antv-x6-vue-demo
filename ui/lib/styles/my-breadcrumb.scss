@@ -1,0 +1,262 @@
+@import "common/var";
+
+
+$breadcrumb-blue: $--color-primary;
+$breadcrumb-blue-darken: $--color-primary;
+$breadcrumb-green: $--color-primary-light-9;
+$breadcrumb-green-darken: $--color-primary-light-9;
+
+@mixin lighter($value) {
+  background-color: rgba(24, 144, 255, $value) !important;
+  color: $--color-primary-light-10;
+  &:before {
+    border-color: rgba(24, 144, 255, $value) !important;
+    border-left-color: transparent !important;
+  }
+
+  &:after {
+    border-left-color: rgba(24, 144, 255, $value) !important;
+  }
+  &:hover, &.is-active {
+    background-color: $breadcrumb-green !important;
+    color: $--color-primary;
+
+    &:before {
+      border-color: $breadcrumb-green !important;
+      border-left-color: transparent !important;
+    }
+
+    &:after {
+      border-left-color: $breadcrumb-green !important;
+    }
+  }
+}
+
+@include b(breadcrumb) {
+  @include m(navbar) {
+    line-height: 60px;
+    height: 60px;
+  }
+  .el-breadcrumb__item {
+    &.is-pointer {
+      cursor: pointer !important;
+
+      .el-breadcrumb__inner {
+        cursor: pointer !important;
+      }
+    }
+  }
+  .el-breadcrumb__inner {
+    color: inherit !important;
+    opacity: 0.7;
+    transition: none !important;
+
+    a {
+      transition: none !important;
+    }
+  }
+  .el-breadcrumb__separator {
+    color: inherit !important;
+    opacity: 0.3;
+  }
+
+  @include when(flat) {
+    .el-breadcrumb__separator {
+      display: none;
+    }
+    .el-breadcrumb__inner {
+      color: $--color-primary-light-10 !important;
+      display: block;
+      text-decoration: none;
+      height: 40px;
+      line-height: 40px;
+      padding: 0 10px 0 0;
+      text-align: center;
+      font-weight: normal !important;
+      opacity: 1;
+
+      &.is-link {
+        cursor: pointer;
+      }
+    }
+    .el-breadcrumb__item {
+      display: block;
+      background: $breadcrumb-blue;
+      position: relative;
+      margin-right: 23px;
+
+      &:before,
+      &:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        border: 0 solid $breadcrumb-blue;
+        border-width: 20px 10px;
+        width: 0;
+        height: 0;
+      }
+
+      &:before {
+        left: -20px;
+        border-left-color: transparent;
+      }
+
+      &:after {
+        left: 100%;
+        border-color: transparent;
+        border-left-color: $breadcrumb-blue;
+      }
+
+      &:hover, &.is-active {
+        background-color: $breadcrumb-green !important;
+        color: $--color-primary !important;
+
+        &:before {
+          border-color: $breadcrumb-green !important;
+          border-left-color: transparent !important;
+        }
+
+        &:after {
+          border-left-color: $breadcrumb-green !important;
+        }
+
+        .el-breadcrumb__inner {
+          color: $--color-primary !important;
+        }
+      }
+
+      &:nth-child(even) {
+
+        background-color: $breadcrumb-blue-darken;
+
+        &:before {
+          border-color: $breadcrumb-blue-darken;
+          border-left-color: transparent;
+        }
+
+        &:after {
+          border-left-color: $breadcrumb-blue-darken;
+        }
+
+      }
+
+      &:first-child {
+
+        padding-left: 15px;
+        border-radius: 4px 0 0 4px;
+
+        &:before {
+          border: none;
+        }
+
+      }
+
+      &:last-child {
+        padding-right: 15px;
+        border-radius: (0 4px 4px 0);
+        margin-right: 0;
+
+        &:after {
+          border: none;
+        }
+
+      }
+
+      &.is-only-one {
+        border-radius: (4px 4px 4px 4px);
+      }
+    }
+  }
+
+  @include when(arrow) {
+    overflow: hidden;
+    .el-breadcrumb__separator {
+      display: none;
+    }
+    .el-breadcrumb__inner {
+      color: $--color-primary-light-9;
+      display: block;
+      text-decoration: none;
+      height: 40px;
+      line-height: 40px;
+      padding: 0 10px 0 0;
+      text-align: center;
+      font-weight: normal !important;
+      opacity: 1;
+
+      &.is-link {
+        cursor: pointer;
+      }
+    }
+    .el-breadcrumb__item {
+      display: block;
+      background: $breadcrumb-blue;
+      position: relative;
+      margin-right: 23px;
+
+      &:before,
+      &:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        border: 0 solid $breadcrumb-blue;
+        border-width: 20px 10px;
+        width: 0;
+        height: 0;
+      }
+
+      &:before {
+        left: -20px;
+        border-left-color: transparent;
+      }
+
+      &:after {
+        left: 100%;
+        border-color: transparent;
+        border-left-color: $breadcrumb-blue;
+      }
+
+      &:hover, &.is-active {
+        background-color: $breadcrumb-green !important;
+        color: $--color-primary-light-1;
+
+        &:before {
+          border-color: $breadcrumb-green !important;
+          border-left-color: transparent !important;
+        }
+
+        &:after {
+          border-left-color: $breadcrumb-green !important;
+        }
+      }
+
+      &:first-child {
+
+        padding-left: 15px;
+        border-radius: 4px 0 0 4px;
+
+        &:before {
+          border: none;
+        }
+
+      }
+
+      &:nth-last-child(1) {
+        @include lighter(0.2);
+      }
+
+      &:nth-last-child(2) {
+        @include lighter(0.4);
+      }
+
+      &:nth-last-child(3) {
+        @include lighter(0.6)
+      }
+
+      &:nth-last-child(4) {
+        @include lighter(0.8)
+      }
+    }
+  }
+
+}

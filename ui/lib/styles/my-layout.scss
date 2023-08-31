@@ -1,0 +1,117 @@
+@import "common/var";
+
+$split-size: 10px;
+
+@include b(layout) {
+  position: relative;
+
+  @include e(region) {
+    padding: 0 !important;
+    position: relative;
+    overflow: auto;
+  }
+
+  @include e(north) {
+    &.el-header {
+      overflow: initial;
+      padding: 0;
+    }
+    @include when(split) {
+      margin-bottom: $split-size;
+    }
+  }
+
+  @include e(south) {
+    &.el-header {
+      overflow: initial;
+      padding: 0;
+    }
+    @include when(split) {
+      margin-top: $split-size;
+    }
+  }
+
+  @include e(west) {
+    &.el-aside {
+      overflow: initial;
+      z-index: 2;
+    }
+    @include when(split) {
+      margin-right: $split-size;
+    }
+  }
+
+  @include e(east) {
+    &.el-aside {
+      overflow: initial;
+    }
+    @include when(split) {
+      margin-left: $split-size;
+    }
+  }
+
+  @include e(default) {
+    &.el-main {
+      padding: 0;
+      overflow: auto;
+    }
+  }
+
+  @include e(fit) {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+  }
+
+  @include e(wrapper) {
+    position: relative;
+  }
+
+  @include when(horizontal) {
+    @include e(west) {
+      position: relative;
+      z-index: 2;
+    }
+  }
+
+  @include when(vertical) {
+    @include e(north) {
+      position: relative;
+      z-index: 2;
+    }
+  }
+
+  @include when(fit) {
+    width: 100%;
+    height: 100%;
+    @include e(region) {
+      overflow: auto;
+    }
+  }
+
+  @include when(split) {
+    overflow: auto;
+    @include e(region) {
+      @include when(border) {
+        border: 1px solid $--color-border;
+      }
+    }
+
+  }
+
+  @include when(border) {
+    @include e(region) {
+      border-top: 1px solid $--color-border;
+      border-left: 1px solid $--color-border;
+    }
+    border-bottom: 1px solid $--color-border;
+    border-right: 1px solid $--color-border;
+    @include when(split) {
+      border-bottom: none;
+      border-right: none;
+    }
+  }
+
+}

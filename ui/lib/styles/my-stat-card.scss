@@ -1,0 +1,72 @@
+@import "common/var";
+
+@include b(stat-card) {
+  position: relative;
+
+  @include e(icon) {
+    font-size: 46px;
+    background: $--color-primary;
+    background: -webkit-gradient(linear, left bottom, left top, color-stop(0, $--color-primary), color-stop(1, $--color-primary-light-7));
+    color: $--color-primary-light-9;
+    float: left;
+    padding: 10px;
+    border-radius: $--border-radius-base;
+    margin-bottom: 10px;
+    @include when(success) {
+      color: $--color-success-lighter;
+      background: $--color-primary;
+      background: -webkit-gradient(linear, left bottom, left top, color-stop(0, $--color-success), color-stop(1, $--color-success-light));
+    }
+    @include when(warning) {
+      color: $--color-warning-lighter;
+      background: $--color-warning;
+      background: -webkit-gradient(linear, left bottom, left top, color-stop(0, $--color-warning), color-stop(1, $--color-warning-light));
+    }
+    @include when(danger) {
+      color: $--color-danger-lighter;
+      background: $--color-danger;
+      background: -webkit-gradient(linear, left bottom, left top, color-stop(0, $--color-danger), color-stop(1, $--color-danger-light));
+    }
+  }
+  @include e(wrapper) {
+    @include when(has-icon) {
+      padding-left: 80px;
+      padding-top: 5px;
+    }
+  }
+
+  @include e(title) {
+    color: $--color-secondary-text;
+  }
+  @include e(actions) {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  @include e(total) {
+    font-size: 30px;
+    line-height: 30px;
+    margin-top: 8px;
+    margin-bottom: 10px;
+  }
+  @include e(content) {
+    margin-bottom: 8px;
+  }
+  @include e(footer) {
+    margin-top: 8px;
+    padding: 5px 0;
+    border-top: 1px solid $--color-divider;
+    color: $--color-secondary-text;
+    clear: both;
+  }
+}
+
+@include b(stat-card-action) {
+  display: inline-block;
+  cursor: pointer;
+  margin-left: 1rem;
+  color: $--color-secondary-text;
+  &:hover {
+    color: $--color-primary;
+  }
+}

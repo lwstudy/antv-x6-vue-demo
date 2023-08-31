@@ -1,0 +1,49 @@
+@import "common/var";
+
+@include b(flex-item) {
+  position: relative;
+
+  @include e(inner) {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    @include when(center) {
+      text-align: center;
+    }
+  }
+  @include e(helper) {
+    width: 100%;
+    @include when(middle) {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+  }
+
+  @include when(shadow) {
+    box-shadow: $--box-shadow-base;
+    transition: all 0.2s ease-in-out;
+  }
+
+  @include when(align-auto) {
+    align-self: auto
+  }
+  @include when(align-flex-start) {
+    align-self: flex-start
+  }
+  @include when(align-flex-end) {
+    align-self: flex-end
+  }
+  @include when(align-center) {
+    align-self: center
+  }
+  @include when(align-baseline) {
+    align-self: baseline
+  }
+  @include when(align-stretch) {
+    align-self: stretch
+  }
+}

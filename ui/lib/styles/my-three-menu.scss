@@ -1,0 +1,50 @@
+@import "common/var";
+@include b(three-menu){
+    position: relative;
+    @include e(menu) {
+        position: absolute;
+        bottom: 10px;
+        width: 100%;
+        text-align: center;
+        font-size: 0;
+    }
+    @include e(button) {
+        color: rgba(127, 255, 255, 0.75);
+        background: rgba(0, 0, 0, 0.6);
+        border: 1px solid rgba(127, 255, 255, 0.75);
+        padding: 10px;
+        cursor: pointer;
+        display: inline-block;
+        line-height: 1em;
+        font-size: 14px;
+        &:focus {
+            outline: none;
+        }
+        &.disabled {
+            color: #888;
+            cursor: not-allowed;
+            .my-icon{
+                cursor: not-allowed;
+            }
+        }
+        & + & {
+            border-left-width: 0;
+        }
+        &:first-child {
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+        }
+        &:last-child {
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
+        &:hover {
+            background-color: rgba(0, 255, 255, 0.5);
+        }
+    
+        &:active {
+            color: #000000;
+            background-color: rgba(0, 255, 255, 0.75);
+        }
+    }
+}

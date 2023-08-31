@@ -1,0 +1,6 @@
+@import "my-typography";
+
+@include b(text) {
+  display: inline-block;
+
+}

@@ -1,0 +1,46 @@
+@import "common/var";
+
+@include b(edit-tags){
+  display: inline-block;
+  .el-tag {
+    margin-bottom: 10px; 
+  }
+  
+  @include e(warp) {
+    .input-new-tag.el-input--mini {
+      margin-bottom: 10px;
+      // vertical-align: bottom; 
+      
+      @include when(large) {
+        height: 32px; 
+        .el-input__inner{
+          height: 32px !important;
+          line-height: 32px !important;
+        }
+      }
+      @include when(medium){
+        height: 28px;
+        .el-input__inner{
+          height: 28px !important;
+          line-height: 28px !important;
+        } 
+      }
+      @include when(small){
+        height: 24px;
+        .el-input__inner{
+          height: 24px;
+          line-height: 24px;
+        }
+      }
+      @include when(mini){
+        height: 21px;
+        .el-input__inner{
+          height: 21px;
+          line-height: 21px;
+        }
+      }
+    }
+    
+  }
+  
+}

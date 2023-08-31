@@ -1,0 +1,39 @@
+@import "common/var";
+
+@include b(drag) {
+  display: inline-block;
+  position: absolute;
+  @include e(handle) {
+    cursor: move;
+    @include when(disabled) {
+      cursor: initial;
+    }
+  }
+  @include e(clone) {
+    position: absolute;
+    user-select: none;
+    opacity: 0.6;
+    z-index: $--index-popper;
+    @include when(clone) {
+      position: absolute !important;
+    }
+    @include when(revert) {
+      transition: all 0.2s;
+    }
+  }
+
+  @include when(dragging) {
+    position: absolute;
+    user-select: none;
+  }
+
+  @include when(disabled) {
+    @include e(handle) {
+      cursor: auto;
+    }
+  }
+
+  @include when(clone) {
+    position: static;
+  }
+}

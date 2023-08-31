@@ -1,0 +1,124 @@
+
+@import "common/var";
+
+@include b(contextmenu) {
+  position: absolute;
+  z-index: 1000;
+  font-size: 14px;
+  left: 0;
+  top: 0;
+
+  @include e(menu) {
+    display: block;
+    box-shadow: $--box-shadow-base;
+    list-style: none;
+    margin: 0;
+    padding: 4px 0;
+    min-width: 100px;
+    border-radius: $--border-radius-small;
+    background: $--background;
+  }
+
+  @include e(item) {
+    position: relative;
+    padding: 0 8px;
+    height: 30px;
+    line-height: 30px;
+    cursor: pointer;
+    clear: both;
+    color: $--color-primary-text;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    &:hover {
+      background: $--color-primary;
+      color: $--color-primary-light-10;
+    }
+
+    @include when(disabled) {
+      color: $--color-secondary-text;
+      cursor: not-allowed;
+      &:hover {
+        background: inherit;
+        color: $--color-secondary-text;
+      }
+    }
+
+    @include when(has-child) {
+      @include e(info) {
+        padding-right: 0;
+      }
+    }
+
+    > .my-contextmenu__menu {
+      position: absolute;
+      left: 100%;
+      top: 0;
+      white-space: nowrap;
+      @include when(left) {
+        left: 0;
+        transform: translateX(-100%);
+      }
+      @include when(bottom) {
+        bottom: 0;
+        top: initial;
+      }
+    }
+  }
+
+  @include e(divider) {
+    height: 0;
+    border-top: 1px solid $--color-divider;
+    margin: 2px 0;
+    clear: both;
+  }
+
+  @include e(label) {
+    margin-right: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  @include e(icon) {
+    width: 20px;
+    display: inline-block;
+    vertical-align: top;
+    .my-icon.is-svg {
+      vertical-align: middle;
+      transform: translateY(-2px);
+    }
+  }
+
+  @include e(info) {
+    padding-right: 10px;
+    opacity: 0.7;
+  }
+  @include e(arrow) {
+    margin-right: -4px;
+  }
+
+  @include when(dark) {
+    @include e(menu) {
+      background: $neutral-black-2;
+    }
+    @include e(item) {
+      color: $--color-primary-light-10;
+      @include when(disabled) {
+        color: $neutral-white-4;
+        cursor: not-allowed;
+        &:hover {
+          background: transparent;
+        }
+      }
+    }
+
+    @include e(divider) {
+      border-top: 1px solid $neutral-white-6;
+    }
+  }
+
+
+}

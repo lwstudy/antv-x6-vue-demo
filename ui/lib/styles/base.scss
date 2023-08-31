@@ -1,0 +1,21 @@
+@import "common/var";
+@import "~nprogress/nprogress.css";
+@import "extend/fix-element-ui";
+
+body, div {
+  @include scroll-bar(8px, $--color-border);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+.user-select-none {
+  user-select: none;
+
+  iframe {
+    pointer-events: none;
+  }
+}
+
+

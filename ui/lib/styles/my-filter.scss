@@ -1,0 +1,28 @@
+@import "common/var";
+
+@include b(filter) {
+  margin-bottom: -22px;
+  overflow: hidden;
+  @include when(flex) {
+    display: flex;
+    flex-flow: row wrap;
+    .el-form-item{
+      flex: 0 0 auto;
+      &.my-form__footer{
+        flex: 1;
+        .el-form-item__label{
+          display: none !important;
+        }
+      }
+    }
+  }
+  @include when(medium) {
+    margin-bottom: -20px;
+  }
+  @include when(small) {
+    margin-bottom: -18px;
+  }
+  @include when(mini) {
+    margin-bottom: -16px;
+  }
+}

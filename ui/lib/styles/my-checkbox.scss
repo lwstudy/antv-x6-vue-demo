@@ -1,0 +1,14 @@
+@import "common/var";
+
+@include b(checkbox) {
+  clear: left;
+  &.has-label-width {
+    clear: initial;
+  }
+}
+
+.my-form.el-form--inline {
+  @include b(checkbox) {
+    clear: initial;
+  }
+}

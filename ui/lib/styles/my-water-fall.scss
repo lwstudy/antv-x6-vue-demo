@@ -1,0 +1,47 @@
+.my-h-water-fall{
+  display: flex;
+  flex-wrap: wrap;
+  * {
+    box-sizing: border-box;
+  }
+  &::after {
+    content: '';
+    flex-grow: 999999999;
+  }
+  .item-warp{
+    position: relative;
+    .content-warp{
+      position: absolute;
+      top: 0;
+      width: 100%;
+      bottom: 0;
+      vertical-align: bottom; 
+    }
+  }
+}
+
+.my-v-water-fall{
+  position: relative;
+  display: flex;
+  flex-flow: row nowrap;
+  * {
+    box-sizing: border-box;
+  } 
+  .col-warp{
+    flex: 1;
+    height: 0; 
+    position: relative;
+  } 
+  .item-warp{
+    position: absolute;
+    transition: left 0.5s, top 0.5s;
+    .content-warp{
+      position: absolute;
+      top: 0;
+      width: 100%;
+      bottom: 0;
+      vertical-align: bottom; 
+    }
+  }
+}
+

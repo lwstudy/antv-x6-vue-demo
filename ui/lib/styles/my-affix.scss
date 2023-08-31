@@ -1,0 +1,6 @@
+@import "common/var";
+
+@include b(affix) {
+  position: fixed;
+  z-index: $--index-top;
+}
