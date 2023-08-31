@@ -2,10 +2,6 @@
 import { cloneDeep } from "$ui/utils/util";
 import { Graph, ObjectExt, Shape, FunctionExt, DataUri } from "@antv/x6";
 
-// 三角三叉
-const triangle_path_d =
-  "M30.8,-0.5 L16.5,8.3 L16.5,-9.1 L30.8,-0.5 Z M40.5,-0.5 A4,4 0 0 1 31.5,-0.5 A4,4 0 0 1 40.5,-0.5 M16.7,-5.5 0.999,-5.5 M16.9,4.5 L0.899,4.6 M16.9,-0.5 L0.899,-0.5";
-
 
 // 五种箭头图片
 // 0   0,1
@@ -60,7 +56,7 @@ const marker_mul_1 = {
   y: -15,
 };
 
-// 逻辑模型多对多 N对N  三叉三角圆 
+// 逻辑模型多对多 N对N  三叉三角圆
 const marker_mul_N = {
   tagName: "image",
   "xlink:href":
@@ -127,6 +123,49 @@ const defalitColumnsStyle = {
   },
 };
 
+// 用于适配连线箭头
+// 此处是开发场景中
+// modelType 模型类型
+// childCardinality 子实体基数
+// parentCardinality 父实体基数
+// manyToManyConvert 用于区分逻辑模型多对多（逻辑模型的有普通的一对多，已经多对多产生的两个一对多）
+function formatEdgeAttrs(modelType, childCardinality, parentCardinality, manyToManyConvert) {
+  let attrs = {};
+  if (modelType !== 3) {
+    if(manyToManyConvert) {
+      const Cardinality_1 = ["1", "3"];
+      // 多对多
+      attrs = {
+        line: {
+          sourceMarker: Cardinality_1.includes(childCardinality) ? {...marker_mul_1} : {...marker_mul_N},
+          targetMarker: Cardinality_1.includes(parentCardinality) ? {...marker_mul_1} : {...marker_mul_N},
+          stroke: "#249995",
+          strokeWidth: 1
+        },
+      };
+    }else {
+      // 默认联系---一对多
+      attrs = {
+        line: {
+          sourceMarker: childCardinality ? {...marker[childCardinality]} : {...marker[1]},
+          targetMarker: parentCardinality ? {...marker[parentCardinality]} : {...marker[2]},
+          stroke: "#249995",
+          strokeWidth: 1
+        },
+      };
+    }
+
+  } else {
+    // 物理模型---基础引用
+    attrs = {
+      line: {
+        stroke: "#249995",
+        targetMarker: markerArrow
+      },
+    };
+  }
+  return attrs;
+}
 
 function registerErPortPosition() {
   return Graph.registerPortLayout(
